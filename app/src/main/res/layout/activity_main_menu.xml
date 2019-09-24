@@ -13,19 +13,94 @@
         android:scaleType="centerCrop"
         android:src="@drawable/kampungbiru" />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="327dp"
+        android:layout_height="350dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="30dp"
         android:background="@drawable/button_primary"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:id="@+id/layoutTop"
+            android:layout_width="match_parent"
+            android:layout_height="155dp"
+            android:layout_below="@id/title">
+
+            <Button
+                android:id="@+id/buttonListVacation"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button_secondary"
+                android:drawableTop="@drawable/wishlist"
+                android:fontFamily="@font/electrolize"
+                android:text="List Vacation"
+                android:textColor="@color/colorPrimary"
+                android:textSize="12dp" />
+
+            <Button
+                android:id="@+id/buttonRecommendation"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button_secondary"
+                android:drawableTop="@drawable/wishlist"
+                android:fontFamily="@font/electrolize"
+                android:text="recommendation"
+                android:textColor="@color/colorPrimary"
+                android:textSize="12dp" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="155dp"
+            android:layout_below="@id/layoutTop"
+            android:layout_marginTop="10dp">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/about"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:layout_marginLeft="40dp"
+                android:background="@drawable/button_secondary" />
+
+            <Button
+                android:id="@+id/history"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/button_secondary" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/electrolize"
+            android:text="where are you going on vacation?"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18dp" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:fontFamily="@font/electrolize"
+        android:text="Tour de Malang"
+        android:textColor="@color/colorWhite"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
