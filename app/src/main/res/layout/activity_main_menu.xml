@@ -38,11 +38,12 @@
                 android:layout_marginLeft="40dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/button_secondary"
-                android:drawableTop="@drawable/wishlist"
+                android:drawableTop="@drawable/wishlist2"
                 android:fontFamily="@font/electrolize"
+                android:paddingTop="30dp"
                 android:text="List Vacation"
                 android:textColor="@color/colorPrimary"
-                android:textSize="12dp" />
+                android:textSize="10dp" />
 
             <Button
                 android:id="@+id/buttonRecommendation"
@@ -51,11 +52,13 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/button_secondary"
-                android:drawableTop="@drawable/wishlist"
+                android:drawableTop="@drawable/question"
                 android:fontFamily="@font/electrolize"
+                android:paddingTop="30dp"
+                android:src="@drawable/wishlist"
                 android:text="recommendation"
                 android:textColor="@color/colorPrimary"
-                android:textSize="12dp" />
+                android:textSize="10dp" />
 
         </LinearLayout>
 
@@ -70,14 +73,27 @@
                 android:layout_width="125dp"
                 android:layout_height="125dp"
                 android:layout_marginLeft="40dp"
-                android:background="@drawable/button_secondary" />
+                android:background="@drawable/button_secondary"
+                android:drawableTop="@drawable/about"
+                android:fontFamily="@font/electrolize"
+                android:paddingTop="30dp"
+                android:text="about"
+                android:textColor="@color/colorPrimary"
+                android:textSize="10dp" />
 
             <Button
                 android:id="@+id/history"
                 android:layout_width="125dp"
                 android:layout_height="125dp"
+                android:paddingBottom="10dp"
                 android:layout_marginLeft="20dp"
-                android:background="@drawable/button_secondary" />
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/button_secondary"
+                android:drawableTop="@drawable/castle"
+                android:fontFamily="@font/electrolize"
+                android:paddingTop="30dp"
+                android:text="history"
+                android:textSize="10dp" />
         </LinearLayout>
 
         <TextView
@@ -89,7 +105,7 @@
             android:text="where are you going on vacation?"
             android:textAlignment="center"
             android:textColor="@color/colorPrimary"
-            android:textSize="18dp" />
+            android:textSize="15dp" />
     </RelativeLayout>
 
     <TextView
