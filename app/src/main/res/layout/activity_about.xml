@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ListVacationActivity">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
+        android:onClick="onClickBackMainMenu"
+        android:src="@drawable/back"
+        app:layout_constraintRight_toLeftOf="@id/titleListVacation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/titleListVacation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/electrolize"
+        android:paddingTop="33dp"
+        android:text="About"
+        android:textColor="@color/colorWhite"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutMain"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/button_primary"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/captionTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/electrolize"
+            android:paddingLeft="25dp"
+            android:paddingTop="10dp"
+            android:text="EVERYBODY NEEDS"
+            android:textColor="@color/colorGrey"
+            android:textSize="18dp"
+            app:layout_constraintLeft_toLeftOf="@id/layoutMain"
+            app:layout_constraintRight_toRightOf="@id/layoutMain"
+            app:layout_constraintTop_toTopOf="@id/layoutMain" />
+
+        <TextView
+            android:id="@+id/captionBottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/electrolize"
+            android:paddingLeft="23dp"
+            android:text="HOLIDAY."
+            android:textColor="@color/colorPrimary"
+            android:textSize="40dp"
+            app:layout_constraintLeft_toLeftOf="@id/layoutMain"
+            app:layout_constraintRight_toRightOf="@id/layoutMain"
+            app:layout_constraintTop_toBottomOf="@id/captionTop" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="50dp"
+            android:layout_height="1dp"
+            android:layout_marginLeft="23dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorPrimary"
+            app:layout_constraintLeft_toLeftOf="@id/layoutMain"
+            app:layout_constraintTop_toBottomOf="@id/captionBottom" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/line"
+            android:layout_marginLeft="23dp"
+            android:layout_marginTop="23dp"
+            android:layout_marginRight="50dp"
+            android:fontFamily="@font/electrolize"
+            android:text="@string/caption"
+            android:textSize="15dp"
+            android:paddingBottom="40dp"
+            app:layout_constraintLeft_toLeftOf="@id/layoutMain"
+            app:layout_constraintRight_toRightOf="@id/layoutMain"
+            app:layout_constraintTop_toBottomOf="@id/line" />
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image_greg"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_below="@id/description"
+            android:layout_marginLeft="23dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/dp"
+            app:civ_border_color="@color/colorGrey"
+            app:civ_border_width="2dp"
+            app:layout_constraintLeft_toLeftOf="@id/layoutMain"
+            app:layout_constraintTop_toBottomOf="@id/description" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image_iwonk"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_below="@id/description"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/dp_iwonk"
+            app:civ_border_color="@color/colorGrey"
+            app:civ_border_width="2dp"
+            app:layout_constraintLeft_toRightOf="@id/profile_image_greg"
+            app:layout_constraintTop_toBottomOf="@id/description" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image_reza"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_below="@id/description"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/dp_reza"
+            app:civ_border_color="@color/colorGrey"
+            app:civ_border_width="2dp"
+            app:layout_constraintLeft_toRightOf="@id/profile_image_iwonk"
+            app:layout_constraintTop_toBottomOf="@id/description" />
+
+        <TextView
+            android:id="@+id/authorGreggy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/electrolize"
+            android:text="GREGGY"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="@id/profile_image_greg"
+            app:layout_constraintRight_toRightOf="@id/profile_image_greg"
+            app:layout_constraintTop_toBottomOf="@id/profile_image_greg" />
+
+        <TextView
+            android:id="@+id/authorIwonk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/electrolize"
+            android:text="ILHAM"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="@id/profile_image_iwonk"
+            app:layout_constraintRight_toRightOf="@id/profile_image_iwonk"
+            app:layout_constraintTop_toBottomOf="@id/profile_image_iwonk" />
+
+        <TextView
+            android:id="@+id/authorReza"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/electrolize"
+            android:text="REZA"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="@id/profile_image_reza"
+            app:layout_constraintRight_toRightOf="@id/profile_image_reza"
+            app:layout_constraintTop_toBottomOf="@id/profile_image_reza" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/electrolize"
+            android:text="Android Dev"
+            android:textSize="13sp"
+            app:layout_constraintLeft_toLeftOf="@id/profile_image_greg"
+            app:layout_constraintRight_toRightOf="@id/profile_image_greg"
+            app:layout_constraintTop_toBottomOf="@id/authorGreggy" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/electrolize"
+            android:text="Researcher"
+            android:textSize="13sp"
+            app:layout_constraintLeft_toLeftOf="@id/profile_image_iwonk"
+            app:layout_constraintRight_toRightOf="@id/profile_image_iwonk"
+            app:layout_constraintTop_toBottomOf="@id/authorIwonk" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/electrolize"
+            android:text="Researcher"
+            android:textSize="13sp"
+            app:layout_constraintLeft_toLeftOf="@id/profile_image_reza"
+            app:layout_constraintRight_toRightOf="@id/profile_image_reza"
+            app:layout_constraintTop_toBottomOf="@id/authorReza" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
