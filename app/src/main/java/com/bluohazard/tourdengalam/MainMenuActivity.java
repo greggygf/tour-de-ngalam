@@ -1,12 +1,12 @@
 package com.bluohazard.tourdengalam;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.jackandphantom.blurimage.BlurImage;
 
@@ -24,12 +24,12 @@ public class MainMenuActivity extends AppCompatActivity {
     }
 
     public void onClickListVacation(View view) {
-        Intent intent = new Intent(this,ListVacationActivity.class);
+        Intent intent = new Intent(this, ListVacationActivity.class);
         startActivity(intent);
     }
 
     public void onClickAbout(View view) {
-        Intent intent = new Intent(this,AboutActivity.class);
+        Intent intent = new Intent(this, AboutActivity.class);
         startActivity(intent);
     }
 }

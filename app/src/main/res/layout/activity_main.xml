@@ -10,33 +10,30 @@
         android:id="@+id/logo"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/logo"
         android:layout_marginBottom="50dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/logo"
         app:layout_constraintBottom_toBottomOf="parent"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tour de Ngalam"
-        android:textSize="24dp"
         android:fontFamily="@font/electrolize"
+        android:text="Tour de Ngalam"
         android:textColor="#024A83"
-        app:layout_constraintTop_toBottomOf="@id/logo"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="24dp"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo" />
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="200dp"
         android:scaleType="fitXY"
         android:src="@drawable/city"
-        android:layout_marginTop="200dp"
-        />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

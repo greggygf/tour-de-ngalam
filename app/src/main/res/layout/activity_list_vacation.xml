@@ -19,8 +19,8 @@
         android:layout_height="20dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="36dp"
-        android:src="@drawable/back"
         android:onClick="onClickMainMenu"
+        android:src="@drawable/back"
         app:layout_constraintRight_toLeftOf="@id/titleListVacation"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -29,61 +29,61 @@
         android:id="@+id/titleListVacation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/electrolize"
         android:paddingTop="33dp"
         android:text="List Vacation"
         android:textColor="@color/colorWhite"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:fontFamily="@font/electrolize"
-        android:textSize="20dp"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonBeach"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="130dp"
+        android:layout_marginRight="30dp"
         android:background="@drawable/button_primary"
         android:drawableTop="@drawable/wishlist2"
         android:fontFamily="@font/electrolize"
         android:paddingTop="30dp"
         android:text="Beach"
         android:textColor="@color/colorPrimary"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonMountain"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        app:layout_constraintTop_toBottomOf="@id/buttonBeach"
         android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
         android:background="@drawable/button_primary"
         android:drawableTop="@drawable/wishlist2"
         android:fontFamily="@font/electrolize"
         android:paddingTop="30dp"
         android:text="Mountain"
         android:textColor="@color/colorPrimary"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        app:layout_constraintTop_toBottomOf="@id/buttonBeach" />
 
     <Button
         android:id="@+id/buttonPlayground"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        app:layout_constraintTop_toBottomOf="@id/buttonMountain"
         android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
         android:background="@drawable/button_primary"
         android:drawableTop="@drawable/wishlist2"
         android:fontFamily="@font/electrolize"
         android:paddingTop="30dp"
         android:text="Playground"
         android:textColor="@color/colorPrimary"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        app:layout_constraintTop_toBottomOf="@id/buttonMountain" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

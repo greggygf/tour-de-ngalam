@@ -1,10 +1,10 @@
 package com.bluohazard.tourdengalam;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class AboutActivity extends AppCompatActivity {
 
@@ -15,7 +15,7 @@ public class AboutActivity extends AppCompatActivity {
     }
 
     public void onClickBackMainMenu(View view) {
-        Intent intent = new Intent(this,MainMenuActivity.class);
+        Intent intent = new Intent(this, MainMenuActivity.class);
         startActivity(intent);
     }
 }
