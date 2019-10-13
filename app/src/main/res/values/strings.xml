@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Tour de Ngalam</string>
-    <string name="caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel libero faucibus, consectetur massa a, viverra nibh. Morbi dapibus ultrices vestibulum. Praesent accumsan ut sem ut posuere. Aenean iaculis risus ut porttitor aliquet. In rutrum eros quis metus finibus mollis. Quisque eget dictum lacus. Aenean vel purus bibendum, interdum velit eu, auctor lorem. Fusce commodo pretium lorem, eu eleifend libero cursus eu.</string>
+    <string name="caption">Tour de Ngalam adalah aplikasi berbasis android rekomendasi tempat wisata yang ada di Malang Raya. Sebuah aplikasi terbaru untuk menentukan pilihan tempat wisata yang tepat ketika berlibur dan berwisata.</string>
+    <string name="researcher">Researcher</string>
+    <string name="reza">REZA</string>
+    <string name="ilham">ILHAM</string>
+    <string name="greggy">GREGGY</string>
+    <string name="holiday">HOLIDAY.</string>
 </resources>
