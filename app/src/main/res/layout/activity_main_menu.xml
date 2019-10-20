@@ -4,7 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainMenuActivity">
+    tools:context=".activities.MainMenuActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
 
     <ImageView
         android:id="@+id/wallpaper"
@@ -13,112 +20,414 @@
         android:scaleType="centerCrop"
         android:src="@drawable/kampungbiru" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/button_primary"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <LinearLayout
-            android:id="@+id/layoutTop"
-            android:layout_width="match_parent"
-            android:layout_height="155dp"
-            android:layout_below="@id/title">
-
-            <Button
-                android:id="@+id/buttonListVacation"
-                android:layout_width="125dp"
-                android:layout_height="125dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/button_secondary"
-                android:drawableTop="@drawable/wishlist2"
-                android:fontFamily="@font/electrolize"
-                android:onClick="onClickListVacation"
-                android:paddingTop="30dp"
-                android:text="List Vacation"
-                android:textColor="@color/colorPrimary"
-                android:textSize="10dp" />
-
-            <Button
-                android:id="@+id/buttonRecommendation"
-                android:layout_width="125dp"
-                android:layout_height="125dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/button_secondary"
-                android:drawableTop="@drawable/question"
-                android:fontFamily="@font/electrolize"
-                android:paddingTop="30dp"
-                android:src="@drawable/wishlist"
-                android:text="recommendation"
-                android:textColor="@color/colorPrimary"
-                android:textSize="10dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="155dp"
-            android:layout_below="@id/layoutTop"
-            android:layout_marginTop="10dp">
-
-            <Button
-                android:id="@+id/about"
-                android:layout_width="125dp"
-                android:layout_height="125dp"
-                android:layout_marginLeft="40dp"
-                android:background="@drawable/button_secondary"
-                android:drawableTop="@drawable/about"
-                android:fontFamily="@font/electrolize"
-                android:onClick="onClickAbout"
-                android:paddingTop="30dp"
-                android:text="about"
-                android:textColor="@color/colorPrimary"
-                android:textSize="10dp" />
-
-            <Button
-                android:id="@+id/history"
-                android:layout_width="125dp"
-                android:layout_height="125dp"
-                android:layout_marginLeft="20dp"
-                android:background="@drawable/button_secondary"
-                android:drawableTop="@drawable/castle"
-                android:fontFamily="@font/electrolize"
-                android:paddingTop="30dp"
-                android:paddingBottom="10dp"
-                android:text="history"
-                android:textColor="@color/colorPrimary"
-                android:textSize="10dp" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:fontFamily="@font/electrolize"
-            android:text="where are you going on vacation?"
-            android:textAlignment="center"
-            android:textColor="@color/colorPrimary"
-            android:textSize="15dp" />
-    </RelativeLayout>
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
         android:fontFamily="@font/electrolize"
-        android:text="Tour de Malang"
+        android:text="@string/app_title"
         android:textColor="@color/colorWhite"
-        android:textSize="20dp"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/background_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline">
+
+    </View>
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="15dp"
+        android:onClick="onClickListVacation"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/button_secondary"
+        android:drawableTop="@drawable/wishlist2"
+        android:fontFamily="@font/electrolize"
+        android:paddingTop="30dp"
+        android:text="@string/list_vacation"
+        android:textColor="@color/colorPrimary"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@id/guideline2"
+        app:layout_constraintEnd_toStartOf="@id/guideline3"
+        app:layout_constraintStart_toStartOf="@id/view"
+        app:layout_constraintTop_toTopOf="@id/view" />
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="20dp"
+        android:onClick="onClickRecommendation"
+        android:background="@drawable/button_secondary"
+        android:drawableTop="@drawable/question"
+        android:fontFamily="@font/electrolize"
+        android:paddingTop="30dp"
+        android:text="@string/recommendation"
+        android:textColor="@color/colorPrimary"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@id/guideline2"
+        app:layout_constraintEnd_toEndOf="@id/view"
+        app:layout_constraintStart_toEndOf="@id/guideline3"
+        app:layout_constraintTop_toTopOf="@id/view" />
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/button_secondary"
+        android:drawableTop="@drawable/castle"
+        android:fontFamily="@font/electrolize"
+        android:onClick="onClickHistory"
+        android:paddingTop="20dp"
+        android:text="@string/history"
+        android:textColor="@color/colorPrimary"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@id/view"
+        app:layout_constraintEnd_toEndOf="@id/view"
+        app:layout_constraintStart_toEndOf="@id/guideline3"
+        app:layout_constraintTop_toBottomOf="@id/guideline2" />
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/button_secondary"
+        android:drawableTop="@drawable/about"
+        android:onClick="onClickAbout"
+        android:fontFamily="@font/electrolize"
+        android:paddingTop="30dp"
+        android:text="@string/about"
+        android:textColor="@color/colorPrimary"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@id/view"
+        app:layout_constraintEnd_toStartOf="@id/guideline3"
+        app:layout_constraintStart_toStartOf="@id/view"
+        app:layout_constraintTop_toBottomOf="@id/guideline2" />
+
+
+    <!--    <GridLayout-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="0dp"-->
+    <!--        android:alignmentMode="alignMargins"-->
+    <!--        android:background="@drawable/background_menu"-->
+    <!--        android:columnCount="2"-->
+    <!--        android:columnOrderPreserved="false"-->
+    <!--        android:paddingStart="15dp"-->
+    <!--        android:paddingTop="30dp"-->
+    <!--        android:rowCount="3"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/guideline">-->
+
+    <!--        <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--            style="@style/CardView.Light"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginStart="8dp"-->
+    <!--            android:layout_marginTop="8dp"-->
+    <!--            android:layout_marginEnd="8dp">-->
+
+    <!--            <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="wrap_content">-->
+
+    <!--                <ImageView-->
+    <!--                    android:id="@+id/media_image"-->
+    <!--                    android:layout_width="0dp"-->
+    <!--                    android:layout_height="0dp"-->
+    <!--                    android:scaleType="centerCrop"-->
+    <!--                    app:layout_constraintBottom_toTopOf="@+id/supporting_text"-->
+    <!--                    app:layout_constraintDimensionRatio="H,16:9"-->
+    <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+    <!--                    app:layout_constraintStart_toStartOf="parent"-->
+    <!--                    app:layout_constraintTop_toTopOf="parent"-->
+    <!--                    app:layout_constraintVertical_chainStyle="packed" />-->
+
+    <!--                <TextView-->
+    <!--                    android:id="@+id/supporting_text"-->
+    <!--                    android:layout_width="0dp"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginStart="16dp"-->
+    <!--                    android:layout_marginTop="16dp"-->
+    <!--                    android:layout_marginEnd="16dp"-->
+    <!--                    android:layout_marginBottom="16dp"-->
+    <!--                    android:lineSpacingExtra="8dp"-->
+    <!--                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"-->
+    <!--                    android:textColor="#DE000000"-->
+    <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+    <!--                    app:layout_constraintStart_toStartOf="parent"-->
+    <!--                    app:layout_constraintTop_toBottomOf="@+id/media_image" />-->
+
+    <!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+    <!--        </androidx.cardview.widget.CardView>-->
+
+    <!--        <androidx.cardview.widget.CardView-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_margin="12dp"-->
+    <!--            app:cardCornerRadius="12dp"-->
+    <!--            app:cardElevation="6dp">-->
+
+    <!--            <LinearLayout-->
+    <!--                android:layout_width="170dp"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:gravity="center"-->
+    <!--                android:onClick="onClickListVacation"-->
+    <!--                android:orientation="vertical"-->
+    <!--                android:padding="16dp">-->
+
+    <!--                <ImageView-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="50dp"-->
+    <!--                    android:src="@drawable/wishlist2" />-->
+
+    <!--                <TextView-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginTop="12dp"-->
+    <!--                    android:fontFamily="@font/electrolize"-->
+    <!--                    android:text="List Vacation"-->
+    <!--                    android:textColor="@color/colorPrimary"-->
+    <!--                    android:textSize="18sp" />-->
+
+    <!--            </LinearLayout>-->
+
+    <!--        </androidx.cardview.widget.CardView>-->
+
+    <!--        <androidx.cardview.widget.CardView-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_margin="12dp"-->
+    <!--            app:cardCornerRadius="12dp"-->
+    <!--            app:cardElevation="6dp">-->
+
+    <!--            <LinearLayout-->
+    <!--                android:layout_width="170dp"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:gravity="center"-->
+    <!--                android:orientation="vertical"-->
+    <!--                android:padding="16dp">-->
+
+    <!--                <ImageView-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="50dp"-->
+    <!--                    android:src="@drawable/question" />-->
+
+    <!--                <TextView-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginTop="12dp"-->
+    <!--                    android:fontFamily="@font/electrolize"-->
+    <!--                    android:text="Recommendation"-->
+    <!--                    android:textColor="@color/colorPrimary"-->
+    <!--                    android:textSize="17sp" />-->
+
+    <!--            </LinearLayout>-->
+
+    <!--        </androidx.cardview.widget.CardView>-->
+
+    <!--        <androidx.cardview.widget.CardView-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_margin="12dp"-->
+    <!--            app:cardCornerRadius="12dp"-->
+    <!--            app:cardElevation="6dp">-->
+
+    <!--            <LinearLayout-->
+    <!--                android:layout_width="170dp"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:gravity="center"-->
+    <!--                android:onClick="onClickAbout"-->
+    <!--                android:orientation="vertical"-->
+    <!--                android:padding="16dp">-->
+
+    <!--                <ImageView-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="50dp"-->
+    <!--                    android:src="@drawable/about" />-->
+
+    <!--                <TextView-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginTop="12dp"-->
+    <!--                    android:fontFamily="@font/electrolize"-->
+    <!--                    android:text="About"-->
+    <!--                    android:textColor="@color/colorPrimary"-->
+    <!--                    android:textSize="20sp" />-->
+
+    <!--            </LinearLayout>-->
+
+    <!--        </androidx.cardview.widget.CardView>-->
+
+    <!--        <androidx.cardview.widget.CardView-->
+    <!--            android:layout_width="170dp"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_margin="12dp"-->
+    <!--            app:cardCornerRadius="12dp"-->
+    <!--            app:cardElevation="6dp">-->
+
+    <!--            <LinearLayout-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:gravity="center"-->
+    <!--                android:onClick="onClickHistory"-->
+    <!--                android:orientation="vertical"-->
+    <!--                android:padding="16dp">-->
+
+    <!--                <ImageView-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="50dp"-->
+    <!--                    android:src="@drawable/castle" />-->
+
+    <!--                <TextView-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginTop="12dp"-->
+    <!--                    android:fontFamily="@font/electrolize"-->
+    <!--                    android:text="History"-->
+    <!--                    android:textColor="@color/colorPrimary"-->
+    <!--                    android:textSize="20sp" />-->
+
+    <!--            </LinearLayout>-->
+
+    <!--        </androidx.cardview.widget.CardView>-->
+
+    <!--    </GridLayout>-->
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.50121653" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75239396" />
+
+
+    <!--    <RelativeLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="350dp"-->
+    <!--        android:layout_marginStart="30dp"-->
+    <!--        android:layout_marginEnd="30dp"-->
+    <!--        android:layout_marginBottom="30dp"-->
+    <!--        android:background="@drawable/button_primary"-->
+    <!--        android:orientation="vertical"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent">-->
+
+    <!--        <LinearLayout-->
+    <!--            android:id="@+id/layoutTop"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="155dp"-->
+    <!--            android:layout_below="@id/title">-->
+
+    <!--            <Button-->
+    <!--                android:id="@+id/buttonListVacation"-->
+    <!--                android:layout_width="125dp"-->
+    <!--                android:layout_height="125dp"-->
+    <!--                android:layout_marginLeft="40dp"-->
+    <!--                android:layout_marginTop="20dp"-->
+    <!--                android:background="@drawable/button_secondary"-->
+    <!--                android:drawableTop="@drawable/wishlist2"-->
+    <!--                android:fontFamily="@font/electrolize"-->
+    <!--                android:onClick="onClickListVacation"-->
+    <!--                android:paddingTop="30dp"-->
+    <!--                android:text="List Vacation"-->
+    <!--                android:textColor="@color/colorPrimary"-->
+    <!--                android:textSize="10dp" />-->
+
+    <!--            <Button-->
+    <!--                android:id="@+id/buttonRecommendation"-->
+    <!--                android:layout_width="125dp"-->
+    <!--                android:layout_height="125dp"-->
+    <!--                android:layout_marginLeft="20dp"-->
+    <!--                android:layout_marginTop="20dp"-->
+    <!--                android:background="@drawable/button_secondary"-->
+    <!--                android:drawableTop="@drawable/question"-->
+    <!--                android:fontFamily="@font/electrolize"-->
+    <!--                android:paddingTop="30dp"-->
+    <!--                android:src="@drawable/wishlist"-->
+    <!--                android:text="recommendation"-->
+    <!--                android:textColor="@color/colorPrimary"-->
+    <!--                android:textSize="10dp" />-->
+
+    <!--        </LinearLayout>-->
+
+    <!--        <LinearLayout-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="155dp"-->
+    <!--            android:layout_below="@id/layoutTop"-->
+    <!--            android:layout_marginTop="10dp">-->
+
+    <!--            <Button-->
+    <!--                android:id="@+id/about"-->
+    <!--                android:layout_width="125dp"-->
+    <!--                android:layout_height="125dp"-->
+    <!--                android:layout_marginLeft="40dp"-->
+    <!--                android:background="@drawable/button_secondary"-->
+    <!--                android:drawableTop="@drawable/about"-->
+    <!--                android:fontFamily="@font/electrolize"-->
+    <!--                android:onClick="onClickAbout"-->
+    <!--                android:paddingTop="30dp"-->
+    <!--                android:text="about"-->
+    <!--                android:textColor="@color/colorPrimary"-->
+    <!--                android:textSize="10dp" />-->
+
+    <!--            <Button-->
+    <!--                android:id="@+id/history"-->
+    <!--                android:layout_width="125dp"-->
+    <!--                android:layout_height="125dp"-->
+    <!--                android:layout_marginLeft="20dp"-->
+    <!--                android:background="@drawable/button_secondary"-->
+    <!--                android:drawableTop="@drawable/castle"-->
+    <!--                android:fontFamily="@font/electrolize"-->
+    <!--                android:paddingTop="30dp"-->
+    <!--                android:onClick="onClickHistory"-->
+    <!--                android:paddingBottom="10dp"-->
+    <!--                android:text="history"-->
+    <!--                android:textColor="@color/colorPrimary"-->
+    <!--                android:textSize="10dp" />-->
+    <!--        </LinearLayout>-->
+
+    <!--        <TextView-->
+    <!--            android:id="@+id/title"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginTop="15dp"-->
+    <!--            android:fontFamily="@font/electrolize"-->
+    <!--            android:text="where are you going on vacation?"-->
+    <!--            android:textAlignment="center"-->
+    <!--            android:textColor="@color/colorPrimary"-->
+    <!--            android:textSize="15dp" />-->
+    <!--    </RelativeLayout>-->
 </androidx.constraintlayout.widget.ConstraintLayout>

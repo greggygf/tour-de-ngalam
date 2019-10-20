@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "978386643517",
+    "firebase_url": "https://tour-de-ngalam.firebaseio.com",
+    "project_id": "tour-de-ngalam",
+    "storage_bucket": "tour-de-ngalam.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:978386643517:android:299d294b84db660e595854",
+        "android_client_info": {
+          "package_name": "com.bluohazard.tourdengalam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "978386643517-2kt1ndqg10d3632ffaeknar9ligq3ih5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bluohazard.tourdengalam",
+            "certificate_hash": "239dd73c32e1efcf7218d956606e1ca10de62d63"
+          }
+        },
+        {
+          "client_id": "978386643517-fss168jr44l1cje7la5o8nqk14cmrqpb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0cZGam0bzBSe2FpuChtJkYKzB5v-p3aI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "978386643517-fss168jr44l1cje7la5o8nqk14cmrqpb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

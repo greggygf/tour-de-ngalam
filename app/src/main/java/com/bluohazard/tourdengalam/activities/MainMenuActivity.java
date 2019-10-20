@@ -1,14 +1,14 @@
-package com.bluohazard.tourdengalam;
+package com.bluohazard.tourdengalam.activities;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bluohazard.tourdengalam.R;
 import com.jackandphantom.blurimage.BlurImage;
 
 public class MainMenuActivity extends AppCompatActivity {
@@ -31,6 +31,16 @@ public class MainMenuActivity extends AppCompatActivity {
 
     public void onClickAbout(View view) {
         Intent intent = new Intent(this, AboutActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClickHistory(View view) {
+        Intent intent = new Intent(this, HistoryActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClickRecommendation(View view) {
+        Intent intent = new Intent(this, SurveyRecommendationActivity.class);
         startActivity(intent);
     }
 }

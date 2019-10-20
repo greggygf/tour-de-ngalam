@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListVacationActivity">
+    tools:context=".activities.ListVacationActivity">
 
     <View
         android:layout_width="match_parent"
@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/electrolize"
         android:paddingTop="33dp"
-        android:text="About"
+        android:text="@string/about"
         android:textColor="@color/colorWhite"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,103 +53,94 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/captionTop"
+        <ImageView
+            android:id="@+id/captionBottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:fontFamily="@font/electrolize"
-            android:paddingStart="25dp"
-            android:paddingTop="10dp"
-            android:text="EVERYBODY NEEDS"
-            android:textColor="@color/colorGrey"
-            android:textSize="18sp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/logo"
             app:layout_constraintLeft_toLeftOf="@id/layoutMain"
             app:layout_constraintRight_toRightOf="@id/layoutMain"
             app:layout_constraintTop_toTopOf="@id/layoutMain" />
 
-        <TextView
-            android:id="@+id/captionBottom"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/electrolize"
-            android:paddingStart="23dp"
-            android:text="@string/holiday"
-            android:textColor="@color/colorPrimary"
-            android:textSize="40sp"
-            app:layout_constraintLeft_toLeftOf="@id/layoutMain"
-            app:layout_constraintRight_toRightOf="@id/layoutMain"
-            app:layout_constraintTop_toBottomOf="@id/captionTop" />
-
         <View
-            android:id="@+id/line"
+            android:id="@+id/lineTop"
             android:layout_width="50dp"
             android:layout_height="1dp"
-            android:layout_marginStart="23dp"
             android:layout_marginTop="20dp"
             android:background="@color/colorPrimary"
-            app:layout_constraintLeft_toLeftOf="@id/layoutMain"
+            app:layout_constraintEnd_toEndOf="@id/layoutMain"
+            app:layout_constraintStart_toStartOf="@id/layoutMain"
             app:layout_constraintTop_toBottomOf="@id/captionBottom" />
 
-        <TextView
+        <me.grantland.widget.AutofitLayout
             android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/line"
             android:layout_marginStart="23dp"
             android:layout_marginTop="23dp"
-            android:layout_marginEnd="50dp"
-            android:fontFamily="@font/electrolize"
-            android:paddingBottom="20dp"
-            android:text="@string/caption"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@id/profile_image_greg"
-            app:layout_constraintLeft_toLeftOf="@id/layoutMain"
-            app:layout_constraintRight_toRightOf="@id/layoutMain"
-            app:layout_constraintTop_toBottomOf="@id/line" />
+            android:layout_marginEnd="23dp"
+            app:layout_constraintBottom_toTopOf="@id/lineBottom"
+            app:layout_constraintEnd_toEndOf="@id/layoutMain"
+            app:layout_constraintStart_toStartOf="@id/layoutMain"
+            app:layout_constraintTop_toBottomOf="@id/lineTop">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/electrolize"
+                android:text="@string/caption"
+                android:textAlignment="center"
+                android:textSize="20sp" />
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_image_greg"
-            android:layout_width="96dp"
-            android:layout_height="96dp"
-            android:layout_below="@id/description"
-            android:layout_marginStart="23dp"
+        </me.grantland.widget.AutofitLayout>
+
+        <View
+            android:id="@+id/lineBottom"
+            android:layout_width="50dp"
+            android:layout_height="1dp"
             android:layout_marginTop="20dp"
-            android:src="@drawable/dp"
-            app:civ_border_color="@color/colorGrey"
-            app:civ_border_width="2dp"
-            app:layout_constraintLeft_toLeftOf="@id/layoutMain"
+            android:background="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="@id/layoutMain"
+            app:layout_constraintStart_toStartOf="@id/layoutMain"
             app:layout_constraintTop_toBottomOf="@id/description" />
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_image_iwonk"
+            android:id="@+id/profile_image_1"
             android:layout_width="96dp"
             android:layout_height="96dp"
-            android:layout_below="@id/description"
-            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/dp"
+            app:civ_border_color="@color/colorGrey"
+            app:civ_border_width="2dp"
+            app:layout_constraintRight_toLeftOf="@id/profile_image_2"
+            app:layout_constraintTop_toTopOf="@id/profile_image_2" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image_2"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
             android:layout_marginTop="20dp"
             android:src="@drawable/dp_iwonk"
             app:civ_border_color="@color/colorGrey"
             app:civ_border_width="2dp"
-            app:layout_constraintLeft_toRightOf="@id/profile_image_greg"
-            app:layout_constraintTop_toBottomOf="@id/description" />
+            app:layout_constraintEnd_toEndOf="@id/layoutMain"
+            app:layout_constraintStart_toStartOf="@id/layoutMain"
+            app:layout_constraintTop_toBottomOf="@id/lineBottom" />
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_image_reza"
+            android:id="@+id/profile_image_3"
             android:layout_width="96dp"
             android:layout_height="96dp"
-            android:layout_below="@id/description"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
             android:src="@drawable/dp_reza"
             app:civ_border_color="@color/colorGrey"
             app:civ_border_width="2dp"
-            app:layout_constraintLeft_toRightOf="@id/profile_image_iwonk"
-            app:layout_constraintTop_toBottomOf="@id/description" />
+            app:layout_constraintLeft_toRightOf="@id/profile_image_2"
+            app:layout_constraintTop_toTopOf="@id/profile_image_2" />
 
         <TextView
-            android:id="@+id/authorGreggy"
+            android:id="@+id/author_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -157,12 +148,12 @@
             android:text="@string/greggy"
             android:textColor="@color/colorPrimary"
             android:textSize="18sp"
-            app:layout_constraintLeft_toLeftOf="@id/profile_image_greg"
-            app:layout_constraintRight_toRightOf="@id/profile_image_greg"
-            app:layout_constraintTop_toBottomOf="@id/profile_image_greg" />
+            app:layout_constraintLeft_toLeftOf="@id/profile_image_1"
+            app:layout_constraintRight_toRightOf="@id/profile_image_1"
+            app:layout_constraintTop_toBottomOf="@id/profile_image_1" />
 
         <TextView
-            android:id="@+id/authorIwonk"
+            android:id="@+id/author_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -170,12 +161,12 @@
             android:text="@string/ilham"
             android:textColor="@color/colorPrimary"
             android:textSize="18sp"
-            app:layout_constraintLeft_toLeftOf="@id/profile_image_iwonk"
-            app:layout_constraintRight_toRightOf="@id/profile_image_iwonk"
-            app:layout_constraintTop_toBottomOf="@id/profile_image_iwonk" />
+            app:layout_constraintLeft_toLeftOf="@id/profile_image_2"
+            app:layout_constraintRight_toRightOf="@id/profile_image_2"
+            app:layout_constraintTop_toBottomOf="@id/profile_image_2" />
 
         <TextView
-            android:id="@+id/authorReza"
+            android:id="@+id/author_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -183,29 +174,19 @@
             android:text="@string/reza"
             android:textColor="@color/colorPrimary"
             android:textSize="18sp"
-            app:layout_constraintLeft_toLeftOf="@id/profile_image_reza"
-            app:layout_constraintRight_toRightOf="@id/profile_image_reza"
-            app:layout_constraintTop_toBottomOf="@id/profile_image_reza" />
+            app:layout_constraintLeft_toLeftOf="@id/profile_image_3"
+            app:layout_constraintRight_toRightOf="@id/profile_image_3"
+            app:layout_constraintTop_toBottomOf="@id/profile_image_3" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/electrolize"
-            android:text="Android Dev"
+            android:text="@string/android_dev"
             android:textSize="13sp"
-            app:layout_constraintLeft_toLeftOf="@id/profile_image_greg"
-            app:layout_constraintRight_toRightOf="@id/profile_image_greg"
-            app:layout_constraintTop_toBottomOf="@id/authorGreggy" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/electrolize"
-            android:text="@string/researcher"
-            android:textSize="13sp"
-            app:layout_constraintLeft_toLeftOf="@id/profile_image_iwonk"
-            app:layout_constraintRight_toRightOf="@id/profile_image_iwonk"
-            app:layout_constraintTop_toBottomOf="@id/authorIwonk" />
+            app:layout_constraintLeft_toLeftOf="@id/profile_image_1"
+            app:layout_constraintRight_toRightOf="@id/profile_image_1"
+            app:layout_constraintTop_toBottomOf="@id/author_1" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -213,9 +194,19 @@
             android:fontFamily="@font/electrolize"
             android:text="@string/researcher"
             android:textSize="13sp"
-            app:layout_constraintLeft_toLeftOf="@id/profile_image_reza"
-            app:layout_constraintRight_toRightOf="@id/profile_image_reza"
-            app:layout_constraintTop_toBottomOf="@id/authorReza" />
+            app:layout_constraintLeft_toLeftOf="@id/profile_image_2"
+            app:layout_constraintRight_toRightOf="@id/profile_image_2"
+            app:layout_constraintTop_toBottomOf="@id/author_2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/electrolize"
+            android:text="@string/researcher"
+            android:textSize="13sp"
+            app:layout_constraintLeft_toLeftOf="@id/profile_image_3"
+            app:layout_constraintRight_toRightOf="@id/profile_image_3"
+            app:layout_constraintTop_toBottomOf="@id/author_3" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

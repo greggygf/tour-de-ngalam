@@ -1,9 +1,23 @@
 <resources>
     <string name="app_name">Tour de Ngalam</string>
+
+    <string name="caption_history">Malang terletak di dataran tinggi yang cukup sejuk, Kota Malang ternyata baru bisa berkembang setelah pemerintahan kolonial Belanda hadir di Kota Dingin ini. Kala itu, fasilitas umum sengaja direncanakan sedemikian rupa untuk memenuhi segala kebutuhan keluarga Belanda yang ada di tengah kota Malang. Sedangkan, masyarakat pribumi ditempatkan di daerah pinggiran yang minim fasilitas. Kesan itu, kini dapat rasakan saat berada di kawasan jalan Ijen yang notabene merupakan kawasan elit Malang.</string>
     <string name="caption">Tour de Ngalam adalah aplikasi berbasis android rekomendasi tempat wisata yang ada di Malang Raya. Sebuah aplikasi terbaru untuk menentukan pilihan tempat wisata yang tepat ketika berlibur dan berwisata.</string>
+
     <string name="researcher">Researcher</string>
+    <string name="android_dev">Android Dev</string>
+
     <string name="reza">REZA</string>
     <string name="ilham">ILHAM</string>
     <string name="greggy">GREGGY</string>
+
     <string name="holiday">HOLIDAY.</string>
+    <string name="app_title">Tour de Malang.</string>
+    <string name="list_vacation">List Vacation</string>
+    <string name="recommendation">Recommendation</string>
+    <string name="history">History</string>
+    <string name="about">About</string>
+    <string name="playground">Playground</string>
+    <string name="mountain">Mountain</string>
+    <string name="beach">Beach</string>
 </resources>
