@@ -27,16 +27,10 @@
                 android:text="2018" />
 
             <TextView
-                android:id="@+id/tv_name_beach"
+                android:id="@+id/tv_name_mountain"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Beach" />
-
-            <ImageView
-                android:id="@+id/tv_image_url"
-                android:src="@mipmap/ic_launcher_round"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:text="Mountain" />
 
         </LinearLayout>
     </LinearLayout>

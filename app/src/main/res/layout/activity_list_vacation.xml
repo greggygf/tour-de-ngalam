@@ -89,6 +89,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
             app:cardCornerRadius="12dp"
+            android:onClick="onClickMountain"
             app:cardElevation="6dp">
 
             <LinearLayout
@@ -127,6 +128,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
+                android:onClick="onClickPlayground"
                 android:orientation="vertical"
                 android:padding="16dp">
 

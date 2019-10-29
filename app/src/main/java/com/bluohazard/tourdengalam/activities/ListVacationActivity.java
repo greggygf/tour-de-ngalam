@@ -25,4 +25,14 @@ public class ListVacationActivity extends AppCompatActivity {
         Intent intent = new Intent(this, BeachActivity.class);
         startActivity(intent);
     }
+
+    public void onClickMountain(View view) {
+        Intent intent = new Intent(this, MountainActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClickPlayground(View view) {
+        Intent intent = new Intent(this, PlaygroundActivity.class);
+        startActivity(intent);
+    }
 }

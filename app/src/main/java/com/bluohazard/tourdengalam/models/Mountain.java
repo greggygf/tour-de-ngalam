@@ -5,27 +5,18 @@ import com.google.firebase.database.Exclude;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Beach {
+public class Mountain {
     public int id;
     public String name;
-    public String image_url;
 
-    public Beach() {
+    public Mountain()
+    {
 
     }
 
-    public Beach(int id, String name, String image_url) {
+    public Mountain(int id, String name) {
         this.id = id;
         this.name = name;
-        this.image_url = image_url;
-    }
-
-    public String getImage_url() {
-        return image_url;
-    }
-
-    public void setImage_url(String image_url) {
-        this.image_url = image_url;
     }
 
     public int getId() {
@@ -49,7 +40,6 @@ public class Beach {
         HashMap<String, Object> result = new HashMap<>();
         result.put("id", id);
         result.put("name", name);
-        result.put("image_url", image_url);
         return result;
     }
 }
