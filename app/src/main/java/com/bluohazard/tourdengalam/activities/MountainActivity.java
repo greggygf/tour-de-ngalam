@@ -61,6 +61,7 @@ public class MountainActivity extends AppCompatActivity {
 
             @Override
             protected void onBindViewHolder(@NonNull MountainViewHolder holder, int position, @NonNull final Mountain model) {
+                holder.setDisplayImage(model.getImage_url(), MountainActivity.this);
                 holder.bindToMountain(model, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

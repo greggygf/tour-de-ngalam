@@ -59,6 +59,7 @@ public class PlaygroundActivity extends AppCompatActivity {
 
             @Override
             protected void onBindViewHolder(@NonNull PlaygroundViewHolder holder, int position, @NonNull final Playground model) {
+                holder.setDisplayImage(model.getImage_url(), PlaygroundActivity.this);
                 holder.bindToPlayground(model, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

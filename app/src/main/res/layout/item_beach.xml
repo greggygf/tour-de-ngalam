@@ -33,7 +33,7 @@
                 android:text="Beach" />
 
             <ImageView
-                android:id="@+id/tv_image_url"
+                android:id="@+id/tv_image_beach"
                 android:src="@mipmap/ic_launcher_round"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>

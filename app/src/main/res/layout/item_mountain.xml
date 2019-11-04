@@ -32,6 +32,12 @@
                 android:layout_height="wrap_content"
                 android:text="Mountain" />
 
+            <ImageView
+                android:id="@+id/tv_image_mountain"
+                android:src="@mipmap/ic_launcher_round"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

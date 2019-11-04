@@ -32,6 +32,12 @@
                 android:layout_height="wrap_content"
                 android:text="Playground" />
 
+            <ImageView
+                android:id="@+id/tv_image_playground"
+                android:src="@mipmap/ic_launcher_round"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

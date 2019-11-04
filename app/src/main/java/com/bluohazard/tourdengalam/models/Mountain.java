@@ -8,15 +8,25 @@ import java.util.Map;
 public class Mountain {
     public int id;
     public String name;
+    public String image_url;
 
     public Mountain()
     {
 
     }
 
-    public Mountain(int id, String name) {
+    public Mountain(int id, String name, String image_url) {
         this.id = id;
         this.name = name;
+        this.image_url = image_url;
+    }
+
+    public String getImage_url() {
+        return image_url;
+    }
+
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
     }
 
     public int getId() {
@@ -40,6 +50,7 @@ public class Mountain {
         HashMap<String, Object> result = new HashMap<>();
         result.put("id", id);
         result.put("name", name);
+        result.put("image_url", image_url);
         return result;
     }
 }

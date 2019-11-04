@@ -60,6 +60,7 @@ public class BeachActivity extends AppCompatActivity {
 
             @Override
             protected void onBindViewHolder(@NonNull BeachViewHolder holder, int position, @NonNull final Beach model) {
+                holder.setDisplayImage(model.getImage_url(), BeachActivity.this);
                 holder.bindToBeach(model, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
