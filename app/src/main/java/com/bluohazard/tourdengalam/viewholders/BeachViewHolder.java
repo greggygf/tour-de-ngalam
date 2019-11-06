@@ -19,14 +19,12 @@ public class BeachViewHolder extends RecyclerView.ViewHolder {
     public BeachViewHolder(@NonNull View itemView) {
         super(itemView);
 
-        tvId = itemView.findViewById(R.id.tv_id);
         tvName = itemView.findViewById(R.id.tv_name_beach);
         image = itemView.findViewById(R.id.tv_image_beach);
     }
 
     public void bindToBeach(Beach beach, View.OnClickListener onClickListener)
     {
-        tvId.setText(String.valueOf(beach.id));
         tvName.setText(beach.name);
     }
 

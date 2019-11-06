@@ -7,40 +7,36 @@
     tools:context=".activities.HistoryActivity">
 
     <View
+        android:id="@+id/backgroundTop"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="100dp"
         android:background="@color/colorPrimary"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
+    <at.markushi.ui.CircleButton
+        style="@style/buttonBack"
         android:onClick="onClickMainMenu"
         android:src="@drawable/back"
+        app:cb_color="#002c4d"
+        app:cb_pressedRingWidth="10dp"
         app:layout_constraintRight_toLeftOf="@id/titleListVacation"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/titleListVacation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/electrolize"
-        android:paddingTop="33dp"
+        style="@style/titleTop"
         android:text="@string/history"
-        android:textColor="@color/colorWhite"
-        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/backgroundTop">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layoutMain"

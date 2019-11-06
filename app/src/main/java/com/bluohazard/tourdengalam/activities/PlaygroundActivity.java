@@ -93,8 +93,9 @@ public class PlaygroundActivity extends AppCompatActivity {
         return query;
     }
 
-    public void onClickMainMenu(View view) {
-        Intent intent = new Intent(this, MainMenuActivity.class);
+
+    public void onClickListVacation(View view) {
+        Intent intent = new Intent(this, ListVacationActivity.class);
         startActivity(intent);
     }
 }

@@ -18,14 +18,13 @@ public class PlaygroundViewHolder extends RecyclerView.ViewHolder {
 
     public PlaygroundViewHolder(@NonNull View itemView) {
         super(itemView);
-        tvId = itemView.findViewById(R.id.tv_id);
+
         tvName = itemView.findViewById(R.id.tv_name_playground);
         image = itemView.findViewById(R.id.tv_image_playground);
     }
 
     public void bindToPlayground(Playground playground, View.OnClickListener onClickListener)
     {
-        tvId.setText(String.valueOf(playground.id));
         tvName.setText(playground.name);
     }
 

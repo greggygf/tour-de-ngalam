@@ -18,14 +18,13 @@ public class MountainViewHolder extends RecyclerView.ViewHolder {
 
     public MountainViewHolder(@NonNull View itemView) {
         super(itemView);
-        tvId = itemView.findViewById(R.id.tv_id);
+
         tvName = itemView.findViewById(R.id.tv_name_mountain);
         image = itemView.findViewById(R.id.tv_image_mountain);
     }
 
     public void bindToMountain(Mountain mountain, View.OnClickListener onClickListener)
     {
-        tvId.setText(String.valueOf(mountain.id));
         tvName.setText(mountain.name);
     }
 

@@ -8,4 +8,22 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!--    Tombol Back -->
+    <style name="buttonBack">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="android:layout_marginTop">36dp</item>
+        <item name="android:src">@drawable/back</item>
+    </style>
+
+    <!--    Title Atas -->
+    <style name="titleTop" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:paddingTop">30dp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
 </resources>
