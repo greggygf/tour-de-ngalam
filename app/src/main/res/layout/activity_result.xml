@@ -4,38 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.MountainActivity">
+    tools:context=".activities.ResultActivity">
 
     <View
-        android:id="@+id/view"
+        android:id="@+id/backgroundTop"
         style="@style/backgroundTop"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/titleListVacation"
+        style="@style/titleTop"
+        android:text="Result"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <at.markushi.ui.CircleButton
         style="@style/buttonBack"
-        android:onClick="onClickListVacation"
+        android:onClick="onClickRecommendation"
         app:cb_color="#002c4d"
         app:cb_pressedRingWidth="10dp"
         app:layout_constraintRight_toLeftOf="@id/titleListVacation"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/titleListVacation"
-        style="@style/titleTop"
-        android:text="@string/mountain"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list_mountain"
-        style="@style/rv_list_vacation"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,4 +20,9 @@ public class SurveyRecommendationActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainMenuActivity.class);
         startActivity(intent);
     }
+
+    public void onClickResult(View view) {
+        Intent intent = new Intent(this, ResultActivity.class);
+        startActivity(intent);
+    }
 }

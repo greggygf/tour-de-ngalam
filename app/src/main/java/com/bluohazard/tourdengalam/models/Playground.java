@@ -9,14 +9,16 @@ public class Playground {
     public int id;
     public String name;
     public String image_url;
+    public String location_title;
 
     public Playground()
     {}
 
-    public Playground(int id, String name, String image_url) {
+    public Playground(int id, String name, String image_url, String location_title) {
         this.id = id;
         this.name = name;
         this.image_url = image_url;
+        this.location_title = location_title;
     }
 
     public String getImage_url() {
@@ -49,6 +51,7 @@ public class Playground {
         result.put("id", id);
         result.put("name", name);
         result.put("image_url", image_url);
+        result.put("location_title", location_title);
         return result;
     }
 }

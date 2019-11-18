@@ -13,19 +13,21 @@ import com.bluohazard.tourdengalam.models.Playground;
 import com.bumptech.glide.Glide;
 
 public class PlaygroundViewHolder extends RecyclerView.ViewHolder {
-    public TextView tvId, tvName;
+    public TextView tvName, tvLocationTitle;
     public ImageView image;
 
     public PlaygroundViewHolder(@NonNull View itemView) {
         super(itemView);
 
         tvName = itemView.findViewById(R.id.tv_name_playground);
+        tvLocationTitle = itemView.findViewById(R.id.tv_location_playground);
         image = itemView.findViewById(R.id.tv_image_playground);
     }
 
     public void bindToPlayground(Playground playground, View.OnClickListener onClickListener)
     {
         tvName.setText(playground.name);
+        tvLocationTitle.setText(playground.location_title);
     }
 
     public void setDisplayImage(String imageUrl, Context context) {

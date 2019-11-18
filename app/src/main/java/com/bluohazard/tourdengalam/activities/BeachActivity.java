@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bluohazard.tourdengalam.R;
+import com.bluohazard.tourdengalam.activities.detail.DetailBeachActivity;
 import com.bluohazard.tourdengalam.models.Beach;
 import com.bluohazard.tourdengalam.viewholders.BeachViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -61,6 +61,25 @@ public class BeachActivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull BeachViewHolder holder, int position, @NonNull final Beach model) {
                 holder.setDisplayImage(model.getImage_url(), BeachActivity.this);
+
+//                holder.image.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        Intent i = new Intent(view.getContext(), DetailBeachActivity.class);
+//                        i.putExtra("name",model.getName());
+//                        startActivity(i);
+//                    }
+//                });
+
+                holder.cv.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent i = new Intent(view.getContext(), DetailBeachActivity.class);
+                        i.putExtra("name",model.getName());
+                        startActivity(i);
+                    }
+                });
+
                 holder.bindToBeach(model, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
