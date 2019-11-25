@@ -1,4 +1,4 @@
-package com.bluohazard.tourdengalam.activities;
+package com.bluohazard.tourdengalam.activities.menu;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bluohazard.tourdengalam.R;
+import com.bluohazard.tourdengalam.activities.MainMenuActivity;
 
 public class AboutActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.bluohazard.tourdengalam.activities;
+package com.bluohazard.tourdengalam.activities.list_vacation;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bluohazard.tourdengalam.R;
+import com.bluohazard.tourdengalam.activities.menu.ListVacationActivity;
 import com.bluohazard.tourdengalam.models.Playground;
 import com.bluohazard.tourdengalam.viewholders.PlaygroundViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -89,7 +90,7 @@ public class PlaygroundActivity extends AppCompatActivity {
     }
 
     private Query getQuery(DatabaseReference mDatabase) {
-        Query query = mDatabase.child("playground").orderByChild("id");
+        Query query = mDatabase.child("playground").orderByChild("name");
         return query;
     }
 

@@ -1,4 +1,4 @@
-package com.bluohazard.tourdengalam.activities;
+package com.bluohazard.tourdengalam.activities.menu;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,10 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bluohazard.tourdengalam.R;
+import com.bluohazard.tourdengalam.activities.MainMenuActivity;
+import com.bluohazard.tourdengalam.activities.list_vacation.BeachActivity;
+import com.bluohazard.tourdengalam.activities.list_vacation.MountainActivity;
+import com.bluohazard.tourdengalam.activities.list_vacation.PlaygroundActivity;
 
 public class ListVacationActivity extends AppCompatActivity {
 

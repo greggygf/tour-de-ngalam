@@ -13,13 +13,14 @@
 
     <string name="holiday">HOLIDAY.</string>
     <string name="app_title">Tour de Malang.</string>
-    <string name="list_vacation">List Vacation</string>
-    <string name="recommendation">Recommendation</string>
-    <string name="history">History</string>
-    <string name="about">About</string>
+    <string name="list_vacation">Daftar Wisata</string>
+    <string name="recommendation">Rekomendasi</string>
+    <string name="history">Sejarah</string>
+    <string name="about">Tentang</string>
     <string name="playground">Playground</string>
-    <string name="mountain">Mountain</string>
-    <string name="beach">Beach</string>
+    <string name="mountain">Gunung</string>
+    <string name="beach">Pantai</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dignissim ut orci id lacinia. Sed non massa in mauris placerat imperdiet. Cras aliquet massa varius elit interdum lacinia. Nam libero quam, cursus et bibendum vitae, ullamcorper eget ipsum. Ut in ornare odio. Ut blandit aliquam egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec vitae lectus elit. Morbi at commodo metus, ut efficitur diam. Proin non lobortis massa. Quisque interdum elit ante, non placerat leo laoreet ut. Morbi ornare pretium condimentum. Praesent ultrices purus nulla, sed tempus sem bibendum vel. Cras ut orci nec massa vestibulum pharetra. Suspendisse in pellentesque eros, ut vehicula mauris.</string>
 
     <string-array name="angka">
         <item>5</item>

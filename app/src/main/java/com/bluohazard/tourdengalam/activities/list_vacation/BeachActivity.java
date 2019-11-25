@@ -1,4 +1,4 @@
-package com.bluohazard.tourdengalam.activities;
+package com.bluohazard.tourdengalam.activities.list_vacation;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bluohazard.tourdengalam.R;
 import com.bluohazard.tourdengalam.activities.detail.DetailBeachActivity;
+import com.bluohazard.tourdengalam.activities.menu.ListVacationActivity;
 import com.bluohazard.tourdengalam.models.Beach;
 import com.bluohazard.tourdengalam.viewholders.BeachViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -36,7 +37,9 @@ public class BeachActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_beach);
 
+        // jika hp offline, maka data tetap ada
         mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.keepSynced(true);
 
         mRecycler = findViewById(R.id.list_beach);
         mRecycler.setHasFixedSize(true);
@@ -62,20 +65,14 @@ public class BeachActivity extends AppCompatActivity {
             protected void onBindViewHolder(@NonNull BeachViewHolder holder, int position, @NonNull final Beach model) {
                 holder.setDisplayImage(model.getImage_url(), BeachActivity.this);
 
-//                holder.image.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//                        Intent i = new Intent(view.getContext(), DetailBeachActivity.class);
-//                        i.putExtra("name",model.getName());
-//                        startActivity(i);
-//                    }
-//                });
-
                 holder.cv.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         Intent i = new Intent(view.getContext(), DetailBeachActivity.class);
-                        i.putExtra("name",model.getName());
+                        i.putExtra("name", model.getName());
+                        i.putExtra("image-url", model.getImage_url());
+                        i.putExtra("location", model.getLocation_title());
+                        i.putExtra("description", model.getDescription());
                         startActivity(i);
                     }
                 });

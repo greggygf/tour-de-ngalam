@@ -10,16 +10,26 @@ public class Beach {
     public String name;
     public String image_url;
     public String location_title;
+    public String description;
 
     public Beach() {
 
     }
 
-    public Beach(int id, String name, String image_url, String location_title) {
+    public Beach(int id, String name, String image_url, String location_title, String description) {
         this.id = id;
         this.name = name;
         this.image_url = image_url;
         this.location_title = location_title;
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getLocation_title() {
@@ -61,6 +71,7 @@ public class Beach {
         result.put("name", name);
         result.put("image_url", image_url);
         result.put("location_title", location_title);
+        result.put("description", description);
         return result;
     }
 }

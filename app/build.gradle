@@ -54,6 +54,9 @@ dependencies {
 
     // range-bar
     implementation 'com.appyvet:materialrangebar:1.4.7'
+
+    // parallax scroll
+    implementation 'com.github.nirhart:parallaxscroll:1.0'
 }
 
 apply plugin: 'com.google.gms.google-services'

@@ -1,4 +1,4 @@
-package com.bluohazard.tourdengalam.activities;
+package com.bluohazard.tourdengalam.activities.menu;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.bluohazard.tourdengalam.R;
+import com.bluohazard.tourdengalam.activities.MainMenuActivity;
 
 public class HistoryActivity extends AppCompatActivity {
 

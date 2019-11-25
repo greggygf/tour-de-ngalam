@@ -1,4 +1,4 @@
-package com.bluohazard.tourdengalam.activities;
+package com.bluohazard.tourdengalam.activities.list_vacation;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,9 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bluohazard.tourdengalam.R;
+import com.bluohazard.tourdengalam.activities.menu.ListVacationActivity;
 import com.bluohazard.tourdengalam.models.Mountain;
-import com.bluohazard.tourdengalam.models.Mountain;
-import com.bluohazard.tourdengalam.viewholders.MountainViewHolder;
 import com.bluohazard.tourdengalam.viewholders.MountainViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;

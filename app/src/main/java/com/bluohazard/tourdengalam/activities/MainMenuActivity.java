@@ -9,6 +9,10 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bluohazard.tourdengalam.R;
+import com.bluohazard.tourdengalam.activities.menu.AboutActivity;
+import com.bluohazard.tourdengalam.activities.menu.HistoryActivity;
+import com.bluohazard.tourdengalam.activities.menu.ListVacationActivity;
+import com.bluohazard.tourdengalam.activities.menu.SurveyRecommendationActivity;
 import com.jackandphantom.blurimage.BlurImage;
 
 public class MainMenuActivity extends AppCompatActivity {

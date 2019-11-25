@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.bluohazard.tourdengalam.R;
+import com.bluohazard.tourdengalam.activities.menu.SurveyRecommendationActivity;
 
 public class ResultActivity extends AppCompatActivity {
 
