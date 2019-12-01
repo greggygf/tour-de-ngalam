@@ -23,11 +23,6 @@
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dignissim ut orci id lacinia. Sed non massa in mauris placerat imperdiet. Cras aliquet massa varius elit interdum lacinia. Nam libero quam, cursus et bibendum vitae, ullamcorper eget ipsum. Ut in ornare odio. Ut blandit aliquam egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec vitae lectus elit. Morbi at commodo metus, ut efficitur diam. Proin non lobortis massa. Quisque interdum elit ante, non placerat leo laoreet ut. Morbi ornare pretium condimentum. Praesent ultrices purus nulla, sed tempus sem bibendum vel. Cras ut orci nec massa vestibulum pharetra. Suspendisse in pellentesque eros, ut vehicula mauris.</string>
 
     <string-array name="angka">
-        <item>5</item>
-        <item>4</item>
-        <item>3</item>
-        <item>2</item>
-        <item>1</item>
         <item>0</item>
         <item>1</item>
         <item>2</item>
