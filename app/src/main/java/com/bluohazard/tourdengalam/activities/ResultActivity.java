@@ -1,11 +1,11 @@
 package com.bluohazard.tourdengalam.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.bluohazard.tourdengalam.R;
 import com.bluohazard.tourdengalam.activities.menu.SurveyRecommendationActivity;
@@ -90,10 +90,9 @@ public class ResultActivity extends AppCompatActivity {
         tvValueAksesToFasilitas.setText(strAksesToFasilitas);
     }
 
+
     public void onClickRecommendation(View view) {
         Intent intent = new Intent(this, SurveyRecommendationActivity.class);
         startActivity(intent);
     }
-
-
 }

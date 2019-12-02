@@ -33,10 +33,22 @@
         <item name="android:background">@color/colorPrimary</item>
     </style>
 
-    <!--    Recycler View-->
+    <!--    Recycler View   -->
     <style name="rv_list_vacation">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0dp</item>
+    </style>
+
+    <!--    Button Submit   -->
+    <style name="buttonSubmit">
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:background">@drawable/button_submit</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:paddingTop">18px</item>
+        <item name="android:paddingBottom">18px</item>
+        <item name="android:paddingStart">32px</item>
+        <item name="android:paddingEnd">32px</item>
+        <item name="android:textColor">@color/colorWhite</item>
     </style>
 
 </resources>
