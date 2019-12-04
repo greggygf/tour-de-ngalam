@@ -2,8 +2,10 @@ package com.bluohazard.tourdengalam.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,8 +31,6 @@ public class ResultActivity extends AppCompatActivity {
 
     String strValueHargaToJarak, strValueFasilitasToJarak, strValueAksesToJarak, strValueFasilitasToHarga, strAksesToHarga, strAksesToFasilitas;
     double valueHargaToJarak, valueFasilitasToJarak, valueAksesToJarak, valueFasilitasToHarga, valueAksesToHarga, valueAksesToFasilitas;
-
-    double nilaiAlternatifJarakGunungBromo;
 
     // [START define_database_reference]
     private DatabaseReference mDatabase;
@@ -196,10 +196,15 @@ public class ResultActivity extends AppCompatActivity {
         mDatabase.child("kriteria").child("fasilitas").setValue(bobotPrioritasC);
         mDatabase.child("kriteria").child("akses").setValue(bobotPrioritasD);
 
-        mDatabase.child("alternatif").child("alternatif-jarak").child("gunung-bromo").addListenerForSingleValueEvent(new ValueEventListener() {
+        mDatabase.child("alternatif").child("alternatif-jarak").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                nilaiAlternatifJarakGunungBromo = Double.parseDouble(dataSnapshot.getValue(String.class));
+                if(dataSnapshot.child("gunung-bromo").getValue() != null) {
+                    double nilaiAlternatifJarakGunungBromo = dataSnapshot.child("gunung-bromo").getValue(Double.class);
+                    totalHasil.setText(Double.toString(nilaiAlternatifJarakGunungBromo));
+                } else  {
+                    Toast.makeText(ResultActivity.this,"kosong",Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
@@ -208,8 +213,8 @@ public class ResultActivity extends AppCompatActivity {
             }
         });
 
-        double bobotPrioritasJarak = bobotPrioritasA * nilaiAlternatifJarakGunungBromo;
-        totalHasil.setText(Double.toString(bobotPrioritasJarak));
+//        double bobotPrioritasJarak = bobotPrioritasA * nilaiAlternatifJarakGunungBromo;
+//        totalHasil.setText(Double.toString(bobotPrioritasJarak));
 
     }
 
