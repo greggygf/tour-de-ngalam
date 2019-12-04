@@ -5,12 +5,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bluohazard.tourdengalam.R;
 import com.bluohazard.tourdengalam.activities.menu.SurveyRecommendationActivity;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class ResultActivity extends AppCompatActivity {
 
@@ -25,6 +29,8 @@ public class ResultActivity extends AppCompatActivity {
 
     String strValueHargaToJarak, strValueFasilitasToJarak, strValueAksesToJarak, strValueFasilitasToHarga, strAksesToHarga, strAksesToFasilitas;
     double valueHargaToJarak, valueFasilitasToJarak, valueAksesToJarak, valueFasilitasToHarga, valueAksesToHarga, valueAksesToFasilitas;
+
+    double nilaiAlternatifJarakGunungBromo;
 
     // [START define_database_reference]
     private DatabaseReference mDatabase;
@@ -102,13 +108,13 @@ public class ResultActivity extends AppCompatActivity {
         strAksesToFasilitas = Double.toString(valueAksesToFasilitas);
         tvValueAksesToFasilitas.setText(strAksesToFasilitas);
 
-        // Perhitungan AHP
+        // Perhitungan AHP Untuk Kriteria
 
         double[][] matrix = new double[4][4];
         double[][] matrixC = new double[4][4];
 
-        double barisA, barisB, barisC, barisD, jumlahBaris;
-        double hasilBagiA, hasilBagiB, hasilBagiC, hasilBagiD;
+        double kolomA, kolomB, kolomC, kolomD;
+        double bobotPrioritasA, bobotPrioritasB, bobotPrioritasC, bobotPrioritasD;
 
         matrix[0][0] = 1;
         matrix[0][1] = Double.parseDouble(getIntent().getStringExtra("value-jarak-harga"));
@@ -142,52 +148,70 @@ public class ResultActivity extends AppCompatActivity {
 
         // Step 2 ( Dikuadratkan )
 
-        for (int i=0; i<=3;i++)
-        {
-            for (int j=0; j<=3;j++)
-            {
-                for(int k=0;k<=3;k++)
-                {
-                    matrixC[i][j]=matrixC[i][j]+matrix[i][k]*matrix[k][j];
-                }
-            }
-        }
+        kolomA = matrix[0][0] + matrix[1][0] + matrix[2][0] + matrix[3][0];
+        kolomB = matrix[0][1] + matrix[1][1] + matrix[2][1] + matrix[3][1];
+        kolomC = matrix[0][2] + matrix[1][2] + matrix[2][2] + matrix[3][2];
+        kolomD = matrix[0][3] + matrix[1][3] + matrix[2][3] + matrix[3][3];
 
         // Step 3 ( dijumlahkan tiap baris )
 
-        barisA = matrixC[0][0] + matrixC[0][1] + matrixC[0][2] + matrixC[0][3];
-        barisB = matrixC[1][0] + matrixC[1][1] + matrixC[1][2] + matrixC[1][3];
-        barisC = matrixC[2][0] + matrixC[2][1] + matrixC[2][2] + matrixC[2][3];
-        barisD = matrixC[3][0] + matrixC[3][1] + matrixC[3][2] + matrixC[3][3];
+        matrixC[0][0] = matrix[0][0] / kolomA;
+        matrixC[1][0] = matrix[1][0] / kolomA;
+        matrixC[2][0] = matrix[2][0] / kolomA;
+        matrixC[3][0] = matrix[3][0] / kolomA;
 
-        jumlahBaris = barisA + barisB + barisC + barisD;
+        matrixC[0][1] = matrix[0][1] / kolomB;
+        matrixC[1][1] = matrix[1][1] / kolomB;
+        matrixC[2][1] = matrix[2][1] / kolomB;
+        matrixC[3][1] = matrix[3][1] / kolomB;
+
+        matrixC[0][2] = matrix[0][2] / kolomC;
+        matrixC[1][2] = matrix[1][2] / kolomC;
+        matrixC[2][2] = matrix[2][2] / kolomC;
+        matrixC[3][2] = matrix[3][2] / kolomC;
+
+        matrixC[0][3] = matrix[0][3] / kolomD;
+        matrixC[1][3] = matrix[1][3] / kolomD;
+        matrixC[2][3] = matrix[2][3] / kolomD;
+        matrixC[3][3] = matrix[3][3] / kolomD;
 
         // Step 4 ( dibagi dengan jumlah )
 
-        hasilBagiA = barisA / jumlahBaris;
-        hasilBagiB = barisB / jumlahBaris;
-        hasilBagiC = barisC / jumlahBaris;
-        hasilBagiD = barisD / jumlahBaris;
+        bobotPrioritasA = (matrixC[0][0] + matrixC[0][1] + matrixC[0][2] + matrixC[0][3]) / 4;
+        bobotPrioritasB = (matrixC[1][0] + matrixC[1][1] + matrixC[1][2] + matrixC[1][3]) / 4;
+        bobotPrioritasC = (matrixC[2][0] + matrixC[2][1] + matrixC[2][2] + matrixC[2][3]) / 4;
+        bobotPrioritasD = (matrixC[3][0] + matrixC[3][1] + matrixC[3][2] + matrixC[3][3]) / 4;
 
-        double total = hasilBagiA + hasilBagiB + hasilBagiC + hasilBagiD;
-
-        hasil1.setText(Double.toString(hasilBagiA));
-        hasil2.setText(Double.toString(hasilBagiB));
-        hasil3.setText(Double.toString(hasilBagiC));
-        hasil4.setText(Double.toString(hasilBagiD));
-        totalHasil.setText(Double.toString(total));
+        hasil1.setText(Double.toString(bobotPrioritasA));
+        hasil2.setText(Double.toString(bobotPrioritasB));
+        hasil3.setText(Double.toString(bobotPrioritasC));
+        hasil4.setText(Double.toString(bobotPrioritasD));
 
         // Memasukkan data hasilbagi ke dalam database
 
-        mDatabase = FirebaseDatabase.getInstance().getReference("rank");
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        mDatabase.child("jarak").setValue(hasilBagiA);
-        mDatabase.child("harga").setValue(hasilBagiB);
-        mDatabase.child("fasilitas").setValue(hasilBagiC);
-        mDatabase.child("akses").setValue(hasilBagiD);
+        mDatabase.child("kriteria").child("jarak").setValue(bobotPrioritasA);
+        mDatabase.child("kriteria").child("harga").setValue(bobotPrioritasB);
+        mDatabase.child("kriteria").child("fasilitas").setValue(bobotPrioritasC);
+        mDatabase.child("kriteria").child("akses").setValue(bobotPrioritasD);
+
+        mDatabase.child("alternatif").child("alternatif-jarak").child("gunung-bromo").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                nilaiAlternatifJarakGunungBromo = Double.parseDouble(dataSnapshot.getValue(String.class));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        double bobotPrioritasJarak = bobotPrioritasA * nilaiAlternatifJarakGunungBromo;
+        totalHasil.setText(Double.toString(bobotPrioritasJarak));
 
     }
-
 
     public void onClickRecommendation(View view) {
         Intent intent = new Intent(this, SurveyRecommendationActivity.class);
