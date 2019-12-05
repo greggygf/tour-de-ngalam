@@ -2,10 +2,8 @@ package com.bluohazard.tourdengalam.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,6 +29,26 @@ public class ResultActivity extends AppCompatActivity {
 
     String strValueHargaToJarak, strValueFasilitasToJarak, strValueAksesToJarak, strValueFasilitasToHarga, strAksesToHarga, strAksesToFasilitas;
     double valueHargaToJarak, valueFasilitasToJarak, valueAksesToJarak, valueFasilitasToHarga, valueAksesToHarga, valueAksesToFasilitas;
+
+    double[][] matrix = new double[4][4];
+    double[][] matrixC = new double[4][4];
+
+    double kolomA, kolomB, kolomC, kolomD;
+    double bobotPrioritasA, bobotPrioritasB, bobotPrioritasC, bobotPrioritasD;
+
+    double nilaiAlternatifJarakGunungBromo, nilaiAlternatifJarakGunungSemeru, nilaiAlternatifJarakJatimPark3, nilaiAlternatifJarakMuseumAngkut, nilaiAlternatifJarakPantaiSempu, nilaiAlternatifJarakPantaiSendiki;
+    double nilaiAlternatifHargaGunungBromo, nilaiAlternatifHargaGunungSemeru, nilaiAlternatifHargaJatimPark3, nilaiAlternatifHargaMuseumAngkut, nilaiAlternatifHargaPantaiSempu, nilaiAlternatifHargaPantaiSendiki;
+    double nilaiAlternatifFasilitasGunungBromo, nilaiAlternatifFasilitasGunungSemeru, nilaiAlternatifFasilitasJatimPark3, nilaiAlternatifFasilitasMuseumAngkut, nilaiAlternatifFasilitasPantaiSempu, nilaiAlternatifFasilitasPantaiSendiki;
+    double nilaiAlternatifAksesGunungBromo, nilaiAlternatifAksesGunungSemeru, nilaiAlternatifAksesJatimPark3, nilaiAlternatifAksesMuseumAngkut, nilaiAlternatifAksesPantaiSempu, nilaiAlternatifAksesPantaiSendiki;
+
+    double bobotPrioritasJarakGunungBromo, bobotPrioritasHargaGunungBromo, bobotPrioritasFasilitasGunungBromo, bobotPrioritasAksesGunungBromo;
+    double bobotPrioritasJarakGunungSemeru, bobotPrioritasHargaGunungSemeru, bobotPrioritasFasilitasGunungSemeru, bobotPrioritasAksesGunungSemeru;
+    double bobotPrioritasJarakJatimPark3, bobotPrioritasHargaJatimPark3, bobotPrioritasFasilitasJatimPark3, bobotPrioritasAksesJatimPark3;
+    double bobotPrioritasJarakMuseumAngkut, bobotPrioritasHargaMuseumAngkut, bobotPrioritasFasilitasMuseumAngkut, bobotPrioritasAksesMuseumAngkut;
+    double bobotPrioritasJarakPantaiSempu, bobotPrioritasHargaPantaiSempu, bobotPrioritasFasilitasPantaiSempu, bobotPrioritasAksesPantaiSempu;
+    double bobotPrioritasJarakPantaiSendiki, bobotPrioritasHargaPantaiSendiki, bobotPrioritasFasilitasPantaiSendiki, bobotPrioritasAksesPantaiSendiki;
+
+    double nilaiTotalGunungBromo = 0, nilaiTotalGunungSemeru, nilaiTotalJatimPark3, nilaiTotalMuseumAngkut, nilaiTotalPantaiSempu, nilaiTotalPantaiSendiki;
 
     // [START define_database_reference]
     private DatabaseReference mDatabase;
@@ -110,12 +128,6 @@ public class ResultActivity extends AppCompatActivity {
 
         // Perhitungan AHP Untuk Kriteria
 
-        double[][] matrix = new double[4][4];
-        double[][] matrixC = new double[4][4];
-
-        double kolomA, kolomB, kolomC, kolomD;
-        double bobotPrioritasA, bobotPrioritasB, bobotPrioritasC, bobotPrioritasD;
-
         matrix[0][0] = 1;
         matrix[0][1] = Double.parseDouble(getIntent().getStringExtra("value-jarak-harga"));
         matrix[0][2] = Double.parseDouble(getIntent().getStringExtra("value-jarak-fasilitas"));
@@ -138,10 +150,8 @@ public class ResultActivity extends AppCompatActivity {
 
         // Step 1
 
-        for(int a=0;a<4;a++)
-        {
-            for(int b=0;b<4;b++)
-            {
+        for (int a = 0; a < 4; a++) {
+            for (int b = 0; b < 4; b++) {
                 System.out.print("[" + matrix[a][b] + "]");
             }
         }
@@ -182,10 +192,10 @@ public class ResultActivity extends AppCompatActivity {
         bobotPrioritasC = (matrixC[2][0] + matrixC[2][1] + matrixC[2][2] + matrixC[2][3]) / 4;
         bobotPrioritasD = (matrixC[3][0] + matrixC[3][1] + matrixC[3][2] + matrixC[3][3]) / 4;
 
-        hasil1.setText(Double.toString(bobotPrioritasA));
-        hasil2.setText(Double.toString(bobotPrioritasB));
-        hasil3.setText(Double.toString(bobotPrioritasC));
-        hasil4.setText(Double.toString(bobotPrioritasD));
+//        hasil1.setText(Double.toString(bobotPrioritasA));
+//        hasil2.setText(Double.toString(bobotPrioritasB));
+//        hasil3.setText(Double.toString(bobotPrioritasC));
+//        hasil4.setText(Double.toString(bobotPrioritasD));
 
         // Memasukkan data hasilbagi ke dalam database
 
@@ -199,11 +209,37 @@ public class ResultActivity extends AppCompatActivity {
         mDatabase.child("alternatif").child("alternatif-jarak").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.child("gunung-bromo").getValue() != null) {
-                    double nilaiAlternatifJarakGunungBromo = dataSnapshot.child("gunung-bromo").getValue(Double.class);
-                    totalHasil.setText(Double.toString(nilaiAlternatifJarakGunungBromo));
-                } else  {
-                    Toast.makeText(ResultActivity.this,"kosong",Toast.LENGTH_SHORT).show();
+                if (dataSnapshot.child("gunung-bromo").getValue() != null) {
+                    nilaiAlternatifJarakGunungBromo = dataSnapshot.child("gunung-bromo").getValue(Double.class);
+                    bobotPrioritasJarakGunungBromo = bobotPrioritasA * nilaiAlternatifJarakGunungBromo;
+                    nilaiTotalGunungBromo = nilaiTotalGunungBromo + bobotPrioritasJarakGunungBromo;
+
+                    hasil1.setText(Double.toString(bobotPrioritasJarakGunungBromo));
+                }
+
+                if (dataSnapshot.child("gunung-semeru").getValue() != null) {
+                    nilaiAlternatifJarakGunungSemeru = dataSnapshot.child("gunung-semeru").getValue(Double.class);
+                    bobotPrioritasJarakGunungSemeru = bobotPrioritasA * nilaiAlternatifJarakGunungSemeru;
+                }
+
+                if (dataSnapshot.child("jatim-park-3").getValue() != null) {
+                    nilaiAlternatifJarakJatimPark3 = dataSnapshot.child("jatim-park-3").getValue(Double.class);
+                    bobotPrioritasJarakJatimPark3 = bobotPrioritasA * nilaiAlternatifJarakJatimPark3;
+                }
+
+                if (dataSnapshot.child("museum-angkut").getValue() != null) {
+                    nilaiAlternatifJarakMuseumAngkut = dataSnapshot.child("museum-angkut").getValue(Double.class);
+                    bobotPrioritasJarakMuseumAngkut = bobotPrioritasA * nilaiAlternatifJarakMuseumAngkut;
+                }
+
+                if (dataSnapshot.child("pantai-sempu").getValue() != null) {
+                    nilaiAlternatifJarakPantaiSempu = dataSnapshot.child("pantai-sempu").getValue(Double.class);
+                    bobotPrioritasJarakPantaiSempu = bobotPrioritasA * nilaiAlternatifJarakPantaiSempu;
+                }
+
+                if (dataSnapshot.child("pantai-sendiki").getValue() != null) {
+                    nilaiAlternatifJarakPantaiSendiki = dataSnapshot.child("pantai-sendiki").getValue(Double.class);
+                    bobotPrioritasJarakPantaiSendiki = bobotPrioritasA * nilaiAlternatifJarakPantaiSendiki;
                 }
             }
 
@@ -213,9 +249,144 @@ public class ResultActivity extends AppCompatActivity {
             }
         });
 
-//        double bobotPrioritasJarak = bobotPrioritasA * nilaiAlternatifJarakGunungBromo;
-//        totalHasil.setText(Double.toString(bobotPrioritasJarak));
+        mDatabase.child("alternatif").child("alternatif-harga").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.child("gunung-bromo").getValue() != null) {
+                    nilaiAlternatifHargaGunungBromo = dataSnapshot.child("gunung-bromo").getValue(Double.class);
+                    bobotPrioritasHargaGunungBromo = bobotPrioritasB * nilaiAlternatifHargaGunungBromo;
+                    nilaiTotalGunungBromo = nilaiTotalGunungBromo + bobotPrioritasHargaGunungBromo;
 
+                    hasil2.setText(Double.toString(bobotPrioritasHargaGunungBromo));
+                }
+
+                if (dataSnapshot.child("gunung-semeru").getValue() != null) {
+                    nilaiAlternatifHargaGunungSemeru = dataSnapshot.child("gunung-semeru").getValue(Double.class);
+                    bobotPrioritasHargaGunungSemeru = bobotPrioritasB * nilaiAlternatifHargaGunungSemeru;
+                }
+
+                if (dataSnapshot.child("jatim-park-3").getValue() != null) {
+                    nilaiAlternatifHargaJatimPark3 = dataSnapshot.child("jatim-park-3").getValue(Double.class);
+                    bobotPrioritasHargaJatimPark3 = bobotPrioritasB * nilaiAlternatifHargaJatimPark3;
+                }
+
+                if (dataSnapshot.child("museum-angkut").getValue() != null) {
+                    nilaiAlternatifHargaMuseumAngkut = dataSnapshot.child("museum-angkut").getValue(Double.class);
+                    bobotPrioritasHargaMuseumAngkut = bobotPrioritasB * nilaiAlternatifHargaMuseumAngkut;
+                }
+
+                if (dataSnapshot.child("pantai-sempu").getValue() != null) {
+                    nilaiAlternatifHargaPantaiSempu = dataSnapshot.child("pantai-sempu").getValue(Double.class);
+                    bobotPrioritasHargaPantaiSempu = bobotPrioritasB * nilaiAlternatifHargaPantaiSempu;
+                }
+
+                if (dataSnapshot.child("pantai-sendiki").getValue() != null) {
+                    nilaiAlternatifHargaPantaiSendiki = dataSnapshot.child("pantai-sendiki").getValue(Double.class);
+                    bobotPrioritasHargaPantaiSendiki = bobotPrioritasB * nilaiAlternatifHargaPantaiSendiki;
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        mDatabase.child("alternatif").child("alternatif-fasilitas").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.child("gunung-bromo").getValue() != null) {
+                    nilaiAlternatifFasilitasGunungBromo = dataSnapshot.child("gunung-bromo").getValue(Double.class);
+                    bobotPrioritasFasilitasGunungBromo = bobotPrioritasC * nilaiAlternatifFasilitasGunungBromo;
+                    nilaiTotalGunungBromo = nilaiTotalGunungBromo + bobotPrioritasFasilitasGunungBromo;
+
+                    hasil3.setText(Double.toString(bobotPrioritasFasilitasGunungBromo));
+                }
+
+                if (dataSnapshot.child("gunung-semeru").getValue() != null) {
+                    nilaiAlternatifFasilitasGunungSemeru = dataSnapshot.child("gunung-semeru").getValue(Double.class);
+                    bobotPrioritasFasilitasGunungSemeru = bobotPrioritasC * nilaiAlternatifFasilitasGunungSemeru;
+                }
+
+                if (dataSnapshot.child("jatim-park-3").getValue() != null) {
+                    nilaiAlternatifFasilitasJatimPark3 = dataSnapshot.child("jatim-park-3").getValue(Double.class);
+                    bobotPrioritasFasilitasJatimPark3 = bobotPrioritasC * nilaiAlternatifFasilitasJatimPark3;
+                }
+
+                if (dataSnapshot.child("museum-angkut").getValue() != null) {
+                    nilaiAlternatifFasilitasMuseumAngkut = dataSnapshot.child("museum-angkut").getValue(Double.class);
+                    bobotPrioritasFasilitasMuseumAngkut = bobotPrioritasC * nilaiAlternatifFasilitasMuseumAngkut;
+                }
+
+                if (dataSnapshot.child("pantai-sempu").getValue() != null) {
+                    nilaiAlternatifFasilitasPantaiSempu = dataSnapshot.child("pantai-sempu").getValue(Double.class);
+                    bobotPrioritasFasilitasPantaiSempu = bobotPrioritasC * nilaiAlternatifFasilitasPantaiSempu;
+                }
+
+                if (dataSnapshot.child("pantai-sendiki").getValue() != null) {
+                    nilaiAlternatifFasilitasPantaiSendiki = dataSnapshot.child("pantai-sendiki").getValue(Double.class);
+                    bobotPrioritasFasilitasPantaiSendiki = bobotPrioritasC * nilaiAlternatifFasilitasPantaiSendiki;
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        mDatabase.child("alternatif").child("alternatif-akses").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.child("gunung-bromo").getValue() != null) {
+                    nilaiAlternatifAksesGunungBromo = dataSnapshot.child("gunung-bromo").getValue(Double.class);
+                    bobotPrioritasAksesGunungBromo = bobotPrioritasD * nilaiAlternatifAksesGunungBromo;
+                    nilaiTotalGunungBromo = nilaiTotalGunungBromo + bobotPrioritasAksesGunungBromo;
+
+                    hasil4.setText(Double.toString(bobotPrioritasAksesGunungBromo));
+                    totalHasil.setText(Double.toString(nilaiTotalGunungBromo));
+                }
+
+                if (dataSnapshot.child("gunung-semeru").getValue() != null) {
+                    nilaiAlternatifAksesGunungSemeru = dataSnapshot.child("gunung-semeru").getValue(Double.class);
+                    bobotPrioritasAksesGunungSemeru = bobotPrioritasD * nilaiAlternatifAksesGunungSemeru;
+                }
+
+                if (dataSnapshot.child("jatim-park-3").getValue() != null) {
+                    nilaiAlternatifAksesJatimPark3 = dataSnapshot.child("jatim-park-3").getValue(Double.class);
+                    bobotPrioritasAksesJatimPark3 = bobotPrioritasD * nilaiAlternatifAksesJatimPark3;
+                }
+
+                if (dataSnapshot.child("museum-angkut").getValue() != null) {
+                    nilaiAlternatifAksesMuseumAngkut = dataSnapshot.child("museum-angkut").getValue(Double.class);
+                    bobotPrioritasAksesMuseumAngkut = bobotPrioritasD * nilaiAlternatifAksesMuseumAngkut;
+                }
+
+                if (dataSnapshot.child("pantai-sempu").getValue() != null) {
+                    nilaiAlternatifAksesPantaiSempu = dataSnapshot.child("pantai-sempu").getValue(Double.class);
+                    bobotPrioritasAksesPantaiSempu = bobotPrioritasD * nilaiAlternatifAksesPantaiSempu;
+                }
+
+                if (dataSnapshot.child("pantai-sendiki").getValue() != null) {
+                    nilaiAlternatifAksesPantaiSendiki = dataSnapshot.child("pantai-sendiki").getValue(Double.class);
+                    bobotPrioritasAksesPantaiSendiki = bobotPrioritasD * nilaiAlternatifAksesPantaiSendiki;
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+//        nilaiTotalGunungBromo = bobotPrioritasJarakGunungBromo + bobotPrioritasHargaGunungBromo + bobotPrioritasFasilitasGunungBromo + bobotPrioritasAksesGunungBromo;
+//        nilaiTotalGunungSemeru = bobotPrioritasJarakGunungSemeru + bobotPrioritasHargaGunungSemeru + bobotPrioritasFasilitasGunungSemeru + bobotPrioritasAksesGunungSemeru;
+//        nilaiTotalJatimPark3 = bobotPrioritasJarakJatimPark3 + bobotPrioritasHargaJatimPark3 + bobotPrioritasFasilitasJatimPark3 + bobotPrioritasAksesJatimPark3;
+//        nilaiTotalMuseumAngkut = bobotPrioritasJarakMuseumAngkut + bobotPrioritasHargaMuseumAngkut + bobotPrioritasFasilitasMuseumAngkut + bobotPrioritasAksesMuseumAngkut;
+//        nilaiTotalPantaiSempu = bobotPrioritasJarakPantaiSempu + bobotPrioritasHargaPantaiSempu + bobotPrioritasFasilitasPantaiSempu + bobotPrioritasAksesPantaiSempu;
+//        nilaiTotalPantaiSendiki = bobotPrioritasJarakPantaiSendiki + bobotPrioritasHargaPantaiSendiki + bobotPrioritasFasilitasPantaiSendiki + bobotPrioritasAksesPantaiSendiki;
+
+//        totalHasil.setText(Double.toString(nilaiTotalGunungSemeru));
     }
 
     public void onClickRecommendation(View view) {
