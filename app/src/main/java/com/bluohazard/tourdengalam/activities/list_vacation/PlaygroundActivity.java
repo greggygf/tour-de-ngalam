@@ -90,7 +90,7 @@ public class PlaygroundActivity extends AppCompatActivity {
     }
 
     private Query getQuery(DatabaseReference mDatabase) {
-        Query query = mDatabase.child("playground").orderByChild("name");
+        Query query = mDatabase.child("list-vacation").child("playground").orderByChild("name");
         return query;
     }
 

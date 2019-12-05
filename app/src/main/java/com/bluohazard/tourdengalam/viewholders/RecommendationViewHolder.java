@@ -2,7 +2,6 @@ package com.bluohazard.tourdengalam.viewholders;
 
 import android.content.Context;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,23 +10,21 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bluohazard.tourdengalam.R;
-import com.bluohazard.tourdengalam.models.Beach;
+import com.bluohazard.tourdengalam.models.Recommendation;
 import com.bumptech.glide.Glide;
 
-public class BeachViewHolder extends RecyclerView.ViewHolder {
-    private AdapterView.OnItemClickListener listener;
-
+public class RecommendationViewHolder extends RecyclerView.ViewHolder {
     public TextView tvName, tvLocationTitle;
     public ImageView image;
     public CardView cv;
 
-    public BeachViewHolder(@NonNull View itemView) {
+    public RecommendationViewHolder(@NonNull View itemView) {
         super(itemView);
 
-        tvName = itemView.findViewById(R.id.tv_name_beach);
-        tvLocationTitle = itemView.findViewById(R.id.tv_location_beach);
-        image = itemView.findViewById(R.id.tv_image_beach);
-        cv = itemView.findViewById(R.id.cardViewBeach);
+        tvName = itemView.findViewById(R.id.tv_name_recommendation);
+        tvLocationTitle = itemView.findViewById(R.id.tv_location_recommendation);
+        image = itemView.findViewById(R.id.tv_image_recommendation);
+        cv = itemView.findViewById(R.id.cardViewRecommendation);
 
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,10 +34,9 @@ public class BeachViewHolder extends RecyclerView.ViewHolder {
         });
     }
 
-    public void bindToBeach(Beach beach, View.OnClickListener onClickListener)
-    {
-        tvName.setText(beach.name);
-        tvLocationTitle.setText(beach.location_title);
+    public void bindToRecommendation(Recommendation recommendation, View.OnClickListener onClickListener) {
+        tvName.setText(recommendation.name);
+        tvLocationTitle.setText(recommendation.location_title);
     }
 
     public void setDisplayImage(String imageUrl, Context context) {

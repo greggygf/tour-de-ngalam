@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Mountain {
-    public int id;
     public String name;
     public String image_url;
     public String location_title;
@@ -16,8 +15,7 @@ public class Mountain {
 
     }
 
-    public Mountain(int id, String name, String image_url, String location_title) {
-        this.id = id;
+    public Mountain(String name, String image_url, String location_title) {
         this.name = name;
         this.image_url = image_url;
         this.location_title = location_title;
@@ -31,14 +29,6 @@ public class Mountain {
         this.image_url = image_url;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
     }
@@ -50,7 +40,6 @@ public class Mountain {
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
-        result.put("id", id);
         result.put("name", name);
         result.put("image_url", image_url);
         result.put("location_title", location_title);

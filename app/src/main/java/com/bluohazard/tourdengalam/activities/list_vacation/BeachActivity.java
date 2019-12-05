@@ -106,7 +106,7 @@ public class BeachActivity extends AppCompatActivity {
     }
 
     private Query getQuery(DatabaseReference mDatabase) {
-        Query query = mDatabase.child("beach").orderByChild("id");
+        Query query = mDatabase.child("list-vacation").child("beach").orderByChild("name");
         return query;
     }
 

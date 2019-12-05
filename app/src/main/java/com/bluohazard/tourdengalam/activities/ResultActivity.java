@@ -2,32 +2,33 @@ package com.bluohazard.tourdengalam.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bluohazard.tourdengalam.R;
 import com.bluohazard.tourdengalam.activities.menu.SurveyRecommendationActivity;
+import com.bluohazard.tourdengalam.models.Recommendation;
+import com.bluohazard.tourdengalam.viewholders.RecommendationViewHolder;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class ResultActivity extends AppCompatActivity {
 
-    TextView tvValueJarakToHarga, tvValueHargaToJarak;
-    TextView tvValueJarakToFasilitas, tvValueFasilitasToJarak;
-    TextView tvValueJarakToAkses, tvValueAksesToJarak;
-    TextView tvValueHargaToFasilitas, tvValueFasilitasToHarga;
-    TextView tvValueHargaToAkses, tvValueAksesToHarga;
-    TextView tvValueFasilitasToAkses, tvValueAksesToFasilitas;
+//    TextView hasil1, hasil2, hasil3, hasil4, totalHasil;
 
-    TextView hasil1, hasil2, hasil3, hasil4, totalHasil;
-
-    String strValueHargaToJarak, strValueFasilitasToJarak, strValueAksesToJarak, strValueFasilitasToHarga, strAksesToHarga, strAksesToFasilitas;
     double valueHargaToJarak, valueFasilitasToJarak, valueAksesToJarak, valueFasilitasToHarga, valueAksesToHarga, valueAksesToFasilitas;
 
     double[][] matrix = new double[4][4];
@@ -48,83 +49,40 @@ public class ResultActivity extends AppCompatActivity {
     double bobotPrioritasJarakPantaiSempu, bobotPrioritasHargaPantaiSempu, bobotPrioritasFasilitasPantaiSempu, bobotPrioritasAksesPantaiSempu;
     double bobotPrioritasJarakPantaiSendiki, bobotPrioritasHargaPantaiSendiki, bobotPrioritasFasilitasPantaiSendiki, bobotPrioritasAksesPantaiSendiki;
 
-    double nilaiTotalGunungBromo = 0, nilaiTotalGunungSemeru, nilaiTotalJatimPark3, nilaiTotalMuseumAngkut, nilaiTotalPantaiSempu, nilaiTotalPantaiSendiki;
+    double nilaiTotalGunungBromo = 0, nilaiTotalGunungSemeru = 0, nilaiTotalJatimPark3 = 0, nilaiTotalMuseumAngkut = 0, nilaiTotalPantaiSempu = 0, nilaiTotalPantaiSendiki = 0;
 
     // [START define_database_reference]
     private DatabaseReference mDatabase;
     // [END define_database_reference]
+
+    private FirebaseRecyclerAdapter<Recommendation, RecommendationViewHolder> mAdapter;
+    private RecyclerView mRecycler;
+    private LinearLayoutManager mManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
-        hasil1 = findViewById(R.id.hasil1);
-        hasil2 = findViewById(R.id.hasil2);
-        hasil3 = findViewById(R.id.hasil3);
-        hasil4 = findViewById(R.id.hasil4);
-        totalHasil = findViewById(R.id.total);
-
-        // inisialisasi dari textview
-        tvValueJarakToHarga = findViewById(R.id.valueJarakToHarga);
-        tvValueHargaToJarak = findViewById(R.id.valueHargaToJarak);
-
-        tvValueJarakToFasilitas = findViewById(R.id.valueJarakToFasilitas);
-        tvValueFasilitasToJarak = findViewById(R.id.valueFasilitasToJarak);
-
-        tvValueJarakToAkses = findViewById(R.id.valueJarakToAkses);
-        tvValueAksesToJarak = findViewById(R.id.valueAksesToJarak);
-
-        tvValueHargaToFasilitas = findViewById(R.id.valueHargaToFasilitas);
-        tvValueFasilitasToHarga = findViewById(R.id.valueFasilitasToHarga);
-
-        tvValueHargaToAkses = findViewById(R.id.valueHargaToAkses);
-        tvValueAksesToHarga = findViewById(R.id.valueAksesToHarga);
-
-        tvValueFasilitasToAkses = findViewById(R.id.valueFasilitasToAkses);
-        tvValueAksesToFasilitas = findViewById(R.id.valueAksesToFasilitas);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         // Rangebar Jarak ke Harga
-        tvValueJarakToHarga.setText(getIntent().getStringExtra("value-jarak-harga"));
-
         valueHargaToJarak = 1 / Double.valueOf("" + getIntent().getStringExtra("value-jarak-harga"));
-        strValueHargaToJarak = Double.toString(valueHargaToJarak);
-        tvValueHargaToJarak.setText(strValueHargaToJarak);
 
         // Rangebar Jarak ke Fasilitas
-        tvValueJarakToFasilitas.setText(getIntent().getStringExtra("value-jarak-fasilitas"));
-
         valueFasilitasToJarak = 1 / Double.valueOf("" + getIntent().getStringExtra("value-jarak-fasilitas"));
-        strValueFasilitasToJarak = Double.toString(valueFasilitasToJarak);
-        tvValueFasilitasToJarak.setText(strValueFasilitasToJarak);
 
         // Rangebar Jarak ke Akses
-        tvValueJarakToAkses.setText(getIntent().getStringExtra("value-jarak-akses"));
-
         valueAksesToJarak = 1 / Double.valueOf("" + getIntent().getStringExtra("value-jarak-akses"));
-        strValueAksesToJarak = Double.toString(valueAksesToJarak);
-        tvValueAksesToJarak.setText(strValueAksesToJarak);
 
         // Rangebar Harga ke Fasilitas
-        tvValueHargaToFasilitas.setText(getIntent().getStringExtra("value-harga-fasilitas"));
-
         valueFasilitasToHarga = 1 / Double.valueOf("" + getIntent().getStringExtra("value-harga-fasilitas"));
-        strValueFasilitasToHarga = Double.toString(valueFasilitasToHarga);
-        tvValueFasilitasToHarga.setText(strValueFasilitasToHarga);
 
         // Rangebar Harga ke Akses
-        tvValueHargaToAkses.setText(getIntent().getStringExtra("value-harga-akses"));
-
         valueAksesToHarga = 1 / Double.valueOf("" + getIntent().getStringExtra("value-harga-akses"));
-        strAksesToHarga = Double.toString(valueAksesToHarga);
-        tvValueAksesToHarga.setText(strAksesToHarga);
 
         // Rangebar Fasilitas ke Akses
-        tvValueFasilitasToAkses.setText(getIntent().getStringExtra("value-fasilitas-akses"));
-
         valueAksesToFasilitas = 1 / Double.valueOf("" + getIntent().getStringExtra("value-fasilitas-akses"));
-        strAksesToFasilitas = Double.toString(valueAksesToFasilitas);
-        tvValueAksesToFasilitas.setText(strAksesToFasilitas);
 
         // Perhitungan AHP Untuk Kriteria
 
@@ -192,14 +150,7 @@ public class ResultActivity extends AppCompatActivity {
         bobotPrioritasC = (matrixC[2][0] + matrixC[2][1] + matrixC[2][2] + matrixC[2][3]) / 4;
         bobotPrioritasD = (matrixC[3][0] + matrixC[3][1] + matrixC[3][2] + matrixC[3][3]) / 4;
 
-//        hasil1.setText(Double.toString(bobotPrioritasA));
-//        hasil2.setText(Double.toString(bobotPrioritasB));
-//        hasil3.setText(Double.toString(bobotPrioritasC));
-//        hasil4.setText(Double.toString(bobotPrioritasD));
-
         // Memasukkan data hasilbagi ke dalam database
-
-        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         mDatabase.child("kriteria").child("jarak").setValue(bobotPrioritasA);
         mDatabase.child("kriteria").child("harga").setValue(bobotPrioritasB);
@@ -261,8 +212,6 @@ public class ResultActivity extends AppCompatActivity {
                     nilaiAlternatifHargaGunungBromo = dataSnapshot.child("gunung-bromo").getValue(Double.class);
                     bobotPrioritasHargaGunungBromo = bobotPrioritasB * nilaiAlternatifHargaGunungBromo;
                     nilaiTotalGunungBromo = nilaiTotalGunungBromo + bobotPrioritasHargaGunungBromo;
-
-                    hasil2.setText(Double.toString(bobotPrioritasHargaGunungBromo));
                 }
 
                 if (dataSnapshot.child("gunung-semeru").getValue() != null) {
@@ -309,8 +258,6 @@ public class ResultActivity extends AppCompatActivity {
                     nilaiAlternatifFasilitasGunungBromo = dataSnapshot.child("gunung-bromo").getValue(Double.class);
                     bobotPrioritasFasilitasGunungBromo = bobotPrioritasC * nilaiAlternatifFasilitasGunungBromo;
                     nilaiTotalGunungBromo = nilaiTotalGunungBromo + bobotPrioritasFasilitasGunungBromo;
-
-                    hasil3.setText(Double.toString(bobotPrioritasFasilitasGunungBromo));
                 }
 
                 if (dataSnapshot.child("gunung-semeru").getValue() != null) {
@@ -363,10 +310,7 @@ public class ResultActivity extends AppCompatActivity {
                     bobotPrioritasAksesGunungBromo = bobotPrioritasD * nilaiAlternatifAksesGunungBromo;
                     nilaiTotalGunungBromo = nilaiTotalGunungBromo + bobotPrioritasAksesGunungBromo;
 
-                    mDatabase.child("total").child("gunung-bromo").setValue(nilaiTotalGunungBromo);
-
-                    hasil4.setText(Double.toString(bobotPrioritasAksesGunungBromo));
-                    totalHasil.setText(Double.toString(nilaiTotalGunungBromo));
+                    mDatabase.child("recommendation").child("gunung-bromo").child("value").setValue(nilaiTotalGunungBromo);
                 }
 
                 if (dataSnapshot.child("gunung-semeru").getValue() != null) {
@@ -374,7 +318,7 @@ public class ResultActivity extends AppCompatActivity {
                     bobotPrioritasAksesGunungSemeru = bobotPrioritasD * nilaiAlternatifAksesGunungSemeru;
                     nilaiTotalGunungSemeru = nilaiTotalGunungSemeru + bobotPrioritasAksesGunungSemeru;
 
-                    mDatabase.child("total").child("gunung-semeru").setValue(nilaiTotalGunungSemeru);
+                    mDatabase.child("recommendation").child("gunung-semeru").child("value").setValue(nilaiTotalGunungSemeru);
                 }
 
                 if (dataSnapshot.child("jatim-park-3").getValue() != null) {
@@ -382,7 +326,7 @@ public class ResultActivity extends AppCompatActivity {
                     bobotPrioritasAksesJatimPark3 = bobotPrioritasD * nilaiAlternatifAksesJatimPark3;
                     nilaiTotalJatimPark3 = nilaiTotalJatimPark3 + bobotPrioritasAksesJatimPark3;
 
-                    mDatabase.child("total").child("jatim-park-3").setValue(nilaiTotalJatimPark3);
+                    mDatabase.child("recommendation").child("jatim-park-3").child("value").setValue(nilaiTotalJatimPark3);
                 }
 
                 if (dataSnapshot.child("museum-angkut").getValue() != null) {
@@ -390,7 +334,7 @@ public class ResultActivity extends AppCompatActivity {
                     bobotPrioritasAksesMuseumAngkut = bobotPrioritasD * nilaiAlternatifAksesMuseumAngkut;
                     nilaiTotalMuseumAngkut = nilaiTotalMuseumAngkut + bobotPrioritasAksesMuseumAngkut;
 
-                    mDatabase.child("total").child("museum-angkut").setValue(nilaiTotalMuseumAngkut);
+                    mDatabase.child("recommendation").child("museum-angkut").child("value").setValue(nilaiTotalMuseumAngkut);
                 }
 
                 if (dataSnapshot.child("pantai-sempu").getValue() != null) {
@@ -398,7 +342,7 @@ public class ResultActivity extends AppCompatActivity {
                     bobotPrioritasAksesPantaiSempu = bobotPrioritasD * nilaiAlternatifAksesPantaiSempu;
                     nilaiTotalPantaiSempu = nilaiTotalPantaiSempu + bobotPrioritasAksesPantaiSempu;
 
-                    mDatabase.child("total").child("pantai-sempu").setValue(nilaiTotalPantaiSempu);
+                    mDatabase.child("recommendation").child("pantai-sempu").child("value").setValue(nilaiTotalPantaiSempu);
                 }
 
                 if (dataSnapshot.child("pantai-sendiki").getValue() != null) {
@@ -406,7 +350,7 @@ public class ResultActivity extends AppCompatActivity {
                     bobotPrioritasAksesPantaiSendiki = bobotPrioritasD * nilaiAlternatifAksesPantaiSendiki;
                     nilaiTotalPantaiSendiki = nilaiTotalPantaiSendiki + bobotPrioritasAksesPantaiSendiki;
 
-                    mDatabase.child("total").child("pantai-sendiki").setValue(nilaiTotalPantaiSendiki);
+                    mDatabase.child("recommendation").child("pantai-sendiki").child("value").setValue(nilaiTotalPantaiSendiki);
                 }
             }
 
@@ -416,23 +360,66 @@ public class ResultActivity extends AppCompatActivity {
             }
         });
 
-//        mDatabase.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                if (dataSnapshot.child("total").child("gunung-bromo").getValue() != null) {
-//                     = dataSnapshot.child("gunung-bromo").getValue(Double.class);
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        })
+        mRecycler = findViewById(R.id.list_recommendation);
+        mRecycler.setHasFixedSize(true);
+
+        mManager = new LinearLayoutManager(this);
+        mManager.setReverseLayout(true);
+        mManager.setStackFromEnd(true);
+        mRecycler.setLayoutManager(mManager);
+
+        // Set up FirebaseRecyclerAdapter with the Query
+        Query query = getQuery(mDatabase);
+
+        FirebaseRecyclerOptions options = new FirebaseRecyclerOptions.Builder<Recommendation>()
+                .setQuery(query, Recommendation.class)
+                .build();
+
+        mAdapter = new FirebaseRecyclerAdapter<Recommendation, RecommendationViewHolder>(options) {
+            @Override
+            public RecommendationViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+                return new RecommendationViewHolder(inflater.inflate(R.layout.item_recommendation, parent, false));
+            }
+
+            @Override
+            protected void onBindViewHolder(@NonNull RecommendationViewHolder holder, int position, @NonNull final Recommendation model) {
+                holder.setDisplayImage(model.getImage_url(), ResultActivity.this);
+                holder.bindToRecommendation(model, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                    }
+                });
+            }
+        };
+
+        mAdapter.notifyDataSetChanged();
+        mRecycler.setAdapter(mAdapter);
     }
 
     public void onClickRecommendation(View view) {
         Intent intent = new Intent(this, SurveyRecommendationActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (mAdapter != null) {
+            mAdapter.startListening();
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAdapter != null) {
+            mAdapter.stopListening();
+        }
+    }
+
+    private Query getQuery(DatabaseReference mDatabase) {
+        Query query = mDatabase.child("recommendation").orderByChild("value");
+        return query;
     }
 }

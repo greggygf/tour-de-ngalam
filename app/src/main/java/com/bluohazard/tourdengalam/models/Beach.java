@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Beach {
-    public int id;
     public String name;
     public String image_url;
     public String location_title;
@@ -16,8 +15,7 @@ public class Beach {
 
     }
 
-    public Beach(int id, String name, String image_url, String location_title, String description) {
-        this.id = id;
+    public Beach(String name, String image_url, String location_title, String description) {
         this.name = name;
         this.image_url = image_url;
         this.location_title = location_title;
@@ -48,14 +46,6 @@ public class Beach {
         this.image_url = image_url;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
     }
@@ -67,7 +57,6 @@ public class Beach {
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
-        result.put("id", id);
         result.put("name", name);
         result.put("image_url", image_url);
         result.put("location_title", location_title);

@@ -1,6 +1,6 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/cardViewBeach"
     style="@style/CardView.Light"
+    android:id="@+id/cardViewRecommendation"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="8dp"
@@ -12,11 +12,11 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/tv_image_beach"
+            android:id="@+id/tv_image_recommendation"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:scaleType="centerCrop"
-            app:layout_constraintBottom_toTopOf="@+id/tv_name_beach"
+            app:layout_constraintBottom_toTopOf="@+id/tv_name_recommendation"
             app:layout_constraintDimensionRatio="H,16:9"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -24,49 +24,40 @@
             app:layout_constraintVertical_chainStyle="packed" />
 
         <TextView
-            android:id="@+id/tv_name_beach"
+            android:id="@+id/tv_name_recommendation"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:fontFamily="@font/poppins_bold"
             android:lineSpacingExtra="8dp"
             android:text="Judul Wisata"
+            android:fontFamily="@font/poppins_bold"
             android:textColor="#DE000000"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_image_beach" />
-
-        <ImageView
-            android:id="@+id/iconLocation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:src="@drawable/marker"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_name_beach" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_image_recommendation" />
 
         <TextView
-            android:id="@+id/tv_location_beach"
+            android:id="@+id/tv_location_recommendation"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:fontFamily="@font/poppins_regular"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
             android:lineSpacingExtra="8dp"
             android:text="Daerah Wisata"
+            android:fontFamily="@font/poppins_regular"
             android:textColor="#9b9b9b"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@id/iconLocation"
-            app:layout_constraintStart_toEndOf="@id/iconLocation"
-            app:layout_constraintTop_toTopOf="@id/iconLocation" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name_recommendation" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

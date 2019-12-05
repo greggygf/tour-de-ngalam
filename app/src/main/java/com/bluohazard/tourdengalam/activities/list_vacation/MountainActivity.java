@@ -90,7 +90,7 @@ public class MountainActivity extends AppCompatActivity {
     }
 
     private Query getQuery(DatabaseReference mDatabase) {
-        Query query = mDatabase.child("mountain").orderByChild("id");
+        Query query = mDatabase.child("list-vacation").child("mountain").orderByChild("nama");
         return query;
     }
 
