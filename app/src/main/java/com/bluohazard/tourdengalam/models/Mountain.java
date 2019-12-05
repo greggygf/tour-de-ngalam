@@ -10,8 +10,7 @@ public class Mountain {
     public String image_url;
     public String location_title;
 
-    public Mountain()
-    {
+    public Mountain() {
 
     }
 

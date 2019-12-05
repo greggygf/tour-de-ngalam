@@ -24,8 +24,7 @@ public class PlaygroundViewHolder extends RecyclerView.ViewHolder {
         image = itemView.findViewById(R.id.tv_image_playground);
     }
 
-    public void bindToPlayground(Playground playground, View.OnClickListener onClickListener)
-    {
+    public void bindToPlayground(Playground playground, View.OnClickListener onClickListener) {
         tvName.setText(playground.name);
         tvLocationTitle.setText(playground.location_title);
     }

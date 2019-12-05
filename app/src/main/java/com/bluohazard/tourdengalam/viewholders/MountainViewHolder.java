@@ -24,8 +24,7 @@ public class MountainViewHolder extends RecyclerView.ViewHolder {
         image = itemView.findViewById(R.id.tv_image_mountain);
     }
 
-    public void bindToMountain(Mountain mountain, View.OnClickListener onClickListener)
-    {
+    public void bindToMountain(Mountain mountain, View.OnClickListener onClickListener) {
         tvName.setText(mountain.name);
         tvLocationTitle.setText(mountain.location_title);
     }

@@ -1,10 +1,10 @@
 package com.bluohazard.tourdengalam.activities.menu;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.bluohazard.tourdengalam.R;
 import com.bluohazard.tourdengalam.activities.MainMenuActivity;

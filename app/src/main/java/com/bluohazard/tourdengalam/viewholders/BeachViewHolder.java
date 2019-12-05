@@ -37,8 +37,7 @@ public class BeachViewHolder extends RecyclerView.ViewHolder {
         });
     }
 
-    public void bindToBeach(Beach beach, View.OnClickListener onClickListener)
-    {
+    public void bindToBeach(Beach beach, View.OnClickListener onClickListener) {
         tvName.setText(beach.name);
         tvLocationTitle.setText(beach.location_title);
     }

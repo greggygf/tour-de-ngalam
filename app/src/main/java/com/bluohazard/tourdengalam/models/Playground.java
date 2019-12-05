@@ -10,8 +10,8 @@ public class Playground {
     public String image_url;
     public String location_title;
 
-    public Playground()
-    {}
+    public Playground() {
+    }
 
     public Playground(String name, String image_url, String location_title) {
         this.name = name;
