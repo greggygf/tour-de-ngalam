@@ -9,14 +9,16 @@ public class Playground {
     public String name;
     public String image_url;
     public String location_title;
+    public String description;
 
     public Playground() {
     }
 
-    public Playground(String name, String image_url, String location_title) {
+    public Playground(String name, String image_url, String location_title, String description) {
         this.name = name;
         this.image_url = image_url;
         this.location_title = location_title;
+        this.description = description;
     }
 
     public String getImage_url() {
@@ -33,6 +35,22 @@ public class Playground {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getLocation_title() {
+        return location_title;
+    }
+
+    public void setLocation_title(String location_title) {
+        this.location_title = location_title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Exclude

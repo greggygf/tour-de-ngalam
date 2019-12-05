@@ -6,6 +6,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bluohazard.tourdengalam.R;
@@ -15,6 +16,7 @@ import com.bumptech.glide.Glide;
 public class MountainViewHolder extends RecyclerView.ViewHolder {
     public TextView tvName, tvLocationTitle;
     public ImageView image;
+    public CardView cv;
 
     public MountainViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -22,6 +24,7 @@ public class MountainViewHolder extends RecyclerView.ViewHolder {
         tvName = itemView.findViewById(R.id.tv_name_mountain);
         tvLocationTitle = itemView.findViewById(R.id.tv_location_mountain);
         image = itemView.findViewById(R.id.tv_image_mountain);
+        cv = itemView.findViewById(R.id.cardViewMountain);
     }
 
     public void bindToMountain(Mountain mountain, View.OnClickListener onClickListener) {
