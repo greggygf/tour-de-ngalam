@@ -45,7 +45,7 @@ public class DetailPlaygroundActivity extends AppCompatActivity {
     }
 
     public void onClickPlayground(View view) {
-        Intent intent = new Intent(this, MainMenuActivity.class);
+        Intent intent = new Intent(this, PlaygroundActivity.class);
         startActivity(intent);
     }
 }

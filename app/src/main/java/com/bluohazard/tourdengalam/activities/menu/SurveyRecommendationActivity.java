@@ -13,7 +13,7 @@ import com.bluohazard.tourdengalam.activities.ResultActivity;
 
 public class SurveyRecommendationActivity extends AppCompatActivity {
 
-    int valueJarakHarga, valueJarakFasilitas, valueJarakAkses, valueHargaFasilitas, valueHargaAkses, valueFasilitasAkses;
+    int valueJarakHarga = 0, valueJarakFasilitas = 0, valueJarakAkses = 0, valueHargaFasilitas = 0, valueHargaAkses = 0, valueFasilitasAkses = 0;
     RangeBar rangebar1, rangebar2, rangebar3, rangebar4, rangebar5, rangebar6;
 
     @Override

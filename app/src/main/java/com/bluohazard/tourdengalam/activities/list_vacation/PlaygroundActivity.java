@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bluohazard.tourdengalam.R;
 import com.bluohazard.tourdengalam.activities.detail.DetailMountainActivity;
+import com.bluohazard.tourdengalam.activities.detail.DetailPlaygroundActivity;
 import com.bluohazard.tourdengalam.activities.menu.ListVacationActivity;
 import com.bluohazard.tourdengalam.models.Playground;
 import com.bluohazard.tourdengalam.viewholders.PlaygroundViewHolder;
@@ -66,7 +67,7 @@ public class PlaygroundActivity extends AppCompatActivity {
                 holder.cv.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent i = new Intent(view.getContext(), DetailMountainActivity.class);
+                        Intent i = new Intent(view.getContext(), DetailPlaygroundActivity.class);
                         i.putExtra("name", model.getName());
                         i.putExtra("image-url", model.getImage_url());
                         i.putExtra("location", model.getLocation_title());

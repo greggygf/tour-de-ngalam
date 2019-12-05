@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bluohazard.tourdengalam.R;
+import com.bluohazard.tourdengalam.activities.detail.DetailRecommendationActivity;
 import com.bluohazard.tourdengalam.activities.menu.SurveyRecommendationActivity;
 import com.bluohazard.tourdengalam.models.Recommendation;
 import com.bluohazard.tourdengalam.viewholders.RecommendationViewHolder;
@@ -384,6 +385,19 @@ public class ResultActivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull RecommendationViewHolder holder, int position, @NonNull final Recommendation model) {
                 holder.setDisplayImage(model.getImage_url(), ResultActivity.this);
+
+                holder.cv.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent i = new Intent(view.getContext(), DetailRecommendationActivity.class);
+                        i.putExtra("name", model.getName());
+                        i.putExtra("image-url", model.getImage_url());
+                        i.putExtra("location", model.getLocation_title());
+                        i.putExtra("description", model.getDescription());
+                        startActivity(i);
+                    }
+                });
+
                 holder.bindToRecommendation(model, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
