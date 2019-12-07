@@ -10,8 +10,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bluohazard.tourdengalam.R;
-import com.bluohazard.tourdengalam.activities.MainActivity;
-import com.bluohazard.tourdengalam.activities.MainMenuActivity;
 import com.bluohazard.tourdengalam.activities.list_vacation.PlaygroundActivity;
 import com.bumptech.glide.Glide;
 

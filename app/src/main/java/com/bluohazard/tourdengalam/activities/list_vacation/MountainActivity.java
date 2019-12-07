@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bluohazard.tourdengalam.R;
-import com.bluohazard.tourdengalam.activities.detail.DetailBeachActivity;
 import com.bluohazard.tourdengalam.activities.detail.DetailMountainActivity;
 import com.bluohazard.tourdengalam.activities.menu.ListVacationActivity;
 import com.bluohazard.tourdengalam.models.Mountain;
