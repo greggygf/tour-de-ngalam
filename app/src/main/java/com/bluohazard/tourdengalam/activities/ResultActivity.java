@@ -852,6 +852,7 @@ public class ResultActivity extends AppCompatActivity {
                 .build();
 
         mAdapter = new FirebaseRecyclerAdapter<Recommendation, RecommendationViewHolder>(options) {
+            @NonNull
             @Override
             public RecommendationViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                 LayoutInflater inflater = LayoutInflater.from(parent.getContext());
@@ -908,7 +909,6 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     private Query getQuery(DatabaseReference mDatabase) {
-        Query query = mDatabase.child("recommendation").orderByChild("value-main").limitToLast(2);
-        return query;
+        return mDatabase.child("recommendation").orderByChild("value-main").limitToLast(2);
     }
 }
