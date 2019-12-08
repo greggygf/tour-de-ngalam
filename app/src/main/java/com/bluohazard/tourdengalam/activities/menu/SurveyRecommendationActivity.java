@@ -185,39 +185,39 @@ public class SurveyRecommendationActivity extends AppCompatActivity {
         intent.putExtra("value-fasilitas-akses", "" + valueFasilitasAkses);
 
         if (rdJarakDaripadaHarga.isChecked()) {
-            intent.putExtra("jarak-harga", 0);
+            intent.putExtra("jarak-harga", "0");
         } else if (rdHargaDaripadaJarak.isChecked()) {
-            intent.putExtra("jarak-harga", 1);
+            intent.putExtra("jarak-harga", "1");
         }
 
         if (rdJarakDaripadaFasilitas.isChecked()) {
-            intent.putExtra("jarak-fasilitas", 0);
+            intent.putExtra("jarak-fasilitas", "0");
         } else if (rdFasilitasDaripadaJarak.isChecked()) {
-            intent.putExtra("jarak-fasilitas", 1);
+            intent.putExtra("jarak-fasilitas", "1");
         }
 
         if (rdJarakDaripadaAkses.isChecked()) {
-            intent.putExtra("jarak-akses", 0);
+            intent.putExtra("jarak-akses", "0");
         } else if (rdAksesDaripadaJarak.isChecked()) {
-            intent.putExtra("jarak-akses", 1);
+            intent.putExtra("jarak-akses", "1");
         }
 
         if (rdHargaDaripadaFasilitas.isChecked()) {
-            intent.putExtra("harga-fasilitas", 0);
+            intent.putExtra("harga-fasilitas", "0");
         } else if (rdFasilitasDaripadaHarga.isChecked()) {
-            intent.putExtra("harga-fasilitas", 1);
+            intent.putExtra("harga-fasilitas", "1");
         }
 
         if (rdHargaDaripadaAkses.isChecked()) {
-            intent.putExtra("harga-akses", 0);
+            intent.putExtra("harga-akses", "0");
         } else if (rdAksesDaripadaHarga.isChecked()) {
-            intent.putExtra("harga-akses", 1);
+            intent.putExtra("harga-akses", "1");
         }
 
         if (rdFasilitasDaripadaAkses.isChecked()) {
-            intent.putExtra("fasilitas-akses", 0);
+            intent.putExtra("fasilitas-akses", "0");
         } else if (rdAksesDaripadaFasilitas.isChecked()) {
-            intent.putExtra("fasilitas-akses", 1);
+            intent.putExtra("fasilitas-akses", "1");
         }
 
         startActivity(intent);

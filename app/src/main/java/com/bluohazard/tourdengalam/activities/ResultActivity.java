@@ -113,6 +113,16 @@ public class ResultActivity extends AppCompatActivity {
         // Rangebar Fasilitas Akses
         valueAksesToFasilitas = 1 / Double.valueOf("" + getIntent().getStringExtra("value-fasilitas-akses"));
 
+        // status slider
+
+        String statusJarakHarga = getIntent().getStringExtra("jarak-harga");
+        String statusJarakFasilitas = getIntent().getStringExtra("jarak-fasilitas");
+        String statusJarakAkses = getIntent().getStringExtra("jarak-akses");
+        String statusHargaFasilitas = getIntent().getStringExtra("harga-fasilitas");
+        String statusHargaAkses = getIntent().getStringExtra("harga-akses");
+        String statusFasilitasAkses = getIntent().getStringExtra("fasilitas-akses");
+
+
         // Perhitungan AHP Untuk Kriteria
 
         matrix[0][0] = 1;
@@ -122,78 +132,60 @@ public class ResultActivity extends AppCompatActivity {
 
         // Slider 1
 
-        if(Integer.valueOf("" + getIntent().getStringExtra("jarak-harga")) == 0)
-        {
+        if (statusJarakHarga.equals("0")) {
             matrix[0][1] = Double.parseDouble(getIntent().getStringExtra("value-jarak-harga"));
             matrix[1][0] = valueHargaToJarak;
-        }
-        else if(Integer.valueOf("" + getIntent().getStringExtra("jarak-harga")) == 1)
-        {
+        } else if (statusJarakHarga.equals("1")) {
             matrix[0][1] = valueHargaToJarak;
             matrix[1][0] = Double.parseDouble(getIntent().getStringExtra("value-jarak-harga"));
         }
 
         // Slider 2
 
-        if(Integer.valueOf("" + getIntent().getStringExtra("jarak-fasilitas")) == 0)
-        {
+        if (statusJarakFasilitas.equals("0")) {
             matrix[0][2] = Double.parseDouble(getIntent().getStringExtra("value-jarak-fasilitas"));
             matrix[2][0] = valueFasilitasToJarak;
-        }
-        else if(Integer.valueOf("" + getIntent().getStringExtra("jarak-fasilitas")) == 1)
-        {
+        } else if (statusJarakFasilitas.equals("1")) {
             matrix[0][2] = valueFasilitasToJarak;
             matrix[2][0] = Double.parseDouble(getIntent().getStringExtra("value-jarak-fasilitas"));
         }
 
         // Slider 3
 
-        if(Integer.valueOf("" + getIntent().getStringExtra("jarak-akses")) == 0)
-        {
+        if (statusJarakAkses.equals("0")) {
             matrix[0][3] = Double.parseDouble(getIntent().getStringExtra("value-jarak-akses"));
             matrix[3][0] = valueAksesToJarak;
-        }
-        else if(Integer.valueOf("" + getIntent().getStringExtra("jarak-akses")) == 1)
-        {
+        } else if (statusJarakAkses.equals("1")) {
             matrix[0][3] = valueAksesToJarak;
             matrix[3][0] = Double.parseDouble(getIntent().getStringExtra("value-jarak-akses"));
         }
 
         // Slider 4
 
-        if(Integer.valueOf("" + getIntent().getStringExtra("harga-fasilitas")) == 0)
-        {
+        if (statusHargaFasilitas.equals("0")) {
             matrix[1][2] = Double.parseDouble(getIntent().getStringExtra("value-harga-fasilitas"));
             matrix[2][1] = valueFasilitasToHarga;
-        }
-        else if(Integer.valueOf("" + getIntent().getStringExtra("harga-fasilitas")) == 1)
-        {
+        } else if (statusHargaFasilitas.equals("1")) {
             matrix[1][2] = valueFasilitasToHarga;
             matrix[2][1] = Double.parseDouble(getIntent().getStringExtra("value-harga-fasilitas"));
         }
 
         // Slider 5
 
-        if(Integer.valueOf("" + getIntent().getStringExtra("harga-akses")) == 0)
-        {
+        if (statusHargaAkses.equals("0")) {
             matrix[1][3] = Double.parseDouble(getIntent().getStringExtra("value-harga-akses"));
             matrix[3][1] = valueAksesToHarga;
-        }
-        else if(Integer.valueOf("" + getIntent().getStringExtra("harga-akses")) == 1)
-        {
+        } else if (statusHargaAkses.equals("1")) {
             matrix[1][2] = valueAksesToHarga;
             matrix[2][1] = Double.parseDouble(getIntent().getStringExtra("value-harga-akses"));
         }
 
         // Slider 6
 
-        if(Integer.valueOf("" + getIntent().getStringExtra("fasilitas-akses")) == 0)
-        {
+        if (statusFasilitasAkses.equals("0")) {
             matrix[2][3] = Double.parseDouble(getIntent().getStringExtra("value-fasilitas-akses"));
             matrix[3][2] = valueAksesToFasilitas;
-        }
-        else if(Integer.valueOf("" + getIntent().getStringExtra("fasilitas-akses")) == 1)
-        {
+        } else if (statusFasilitasAkses.equals("1")) {
             matrix[2][3] = valueAksesToFasilitas;
             matrix[3][2] = Double.parseDouble(getIntent().getStringExtra("value-fasilitas-akses"));
         }
@@ -951,6 +943,6 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     private Query getQuery(DatabaseReference mDatabase) {
-        return mDatabase.child("recommendation").orderByChild("value-main").limitToLast(2);
+        return mDatabase.child("recommendation").orderByChild("value-main");
     }
 }
