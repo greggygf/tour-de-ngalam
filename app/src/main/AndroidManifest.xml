@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.detail.DetailRecommendationActivity"></activity>
+        <activity android:name=".activities.detail.DetailRecommendationActivity" />
         <activity android:name=".activities.detail.DetailPlaygroundActivity" />
         <activity android:name=".activities.detail.DetailMountainActivity" />
         <activity android:name=".activities.ResultActivity" />

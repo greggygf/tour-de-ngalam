@@ -27,8 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ResultActivity extends AppCompatActivity {
 
-//    TextView hasil1, hasil2, hasil3, hasil4, totalHasil;
-
+    double valueJarakToHarga, valueJarakToFasilitas, valueJarakToAkses, valueHargaToFasilitas, valueHargaToAkses, valueFasilitasToAkses;
     double valueHargaToJarak, valueFasilitasToJarak, valueAksesToJarak, valueFasilitasToHarga, valueAksesToHarga, valueAksesToFasilitas;
 
     double[][] matrix = new double[4][4];
@@ -96,65 +95,108 @@ public class ResultActivity extends AppCompatActivity {
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        // Rangebar Jarak ke Harga
+        // Rangebar Jarak Harga
         valueHargaToJarak = 1 / Double.valueOf("" + getIntent().getStringExtra("value-jarak-harga"));
 
-        // Rangebar Jarak ke Fasilitas
+        // Rangebar Jarak Fasilitas
         valueFasilitasToJarak = 1 / Double.valueOf("" + getIntent().getStringExtra("value-jarak-fasilitas"));
 
-        // Rangebar Jarak ke Akses
+        // Rangebar Jarak Akses
         valueAksesToJarak = 1 / Double.valueOf("" + getIntent().getStringExtra("value-jarak-akses"));
 
-        // Rangebar Harga ke Fasilitas
+        // Rangebar Harga Fasilitas
         valueFasilitasToHarga = 1 / Double.valueOf("" + getIntent().getStringExtra("value-harga-fasilitas"));
 
-        // Rangebar Harga ke Akses
+        // Rangebar Harga Akses
         valueAksesToHarga = 1 / Double.valueOf("" + getIntent().getStringExtra("value-harga-akses"));
 
-        // Rangebar Fasilitas ke Akses
+        // Rangebar Fasilitas Akses
         valueAksesToFasilitas = 1 / Double.valueOf("" + getIntent().getStringExtra("value-fasilitas-akses"));
 
         // Perhitungan AHP Untuk Kriteria
 
-//        matrix[0][0] = 1;
-//        matrix[0][1] = Double.parseDouble(getIntent().getStringExtra("value-jarak-harga"));
-//        matrix[0][2] = Double.parseDouble(getIntent().getStringExtra("value-jarak-fasilitas"));
-//        matrix[0][3] = Double.parseDouble(getIntent().getStringExtra("value-jarak-akses"));
-//
-//        matrix[1][0] = valueHargaToJarak;
-//        matrix[1][1] = 1;
-//        matrix[1][2] = Double.parseDouble(getIntent().getStringExtra("value-harga-fasilitas"));
-//        matrix[1][3] = Double.parseDouble(getIntent().getStringExtra("value-harga-akses"));
-//
-//        matrix[2][0] = valueFasilitasToJarak;
-//        matrix[2][1] = valueFasilitasToHarga;
-//        matrix[2][2] = 1;
-//        matrix[2][3] = Double.parseDouble(getIntent().getStringExtra("value-fasilitas-akses"));
-//
-//        matrix[3][0] = valueAksesToJarak;
-//        matrix[3][1] = valueAksesToHarga;
-//        matrix[3][2] = valueAksesToFasilitas;
-//        matrix[3][3] = 1;
-
         matrix[0][0] = 1;
-        matrix[1][0] = Double.parseDouble(getIntent().getStringExtra("value-jarak-harga"));
-        matrix[2][0] = Double.parseDouble(getIntent().getStringExtra("value-jarak-fasilitas"));
-        matrix[3][0] = Double.parseDouble(getIntent().getStringExtra("value-jarak-akses"));
-
-        matrix[0][1] = valueHargaToJarak;
         matrix[1][1] = 1;
-        matrix[2][1] = Double.parseDouble(getIntent().getStringExtra("value-harga-fasilitas"));
-        matrix[3][1] = Double.parseDouble(getIntent().getStringExtra("value-harga-akses"));
-
-        matrix[0][2] = valueFasilitasToJarak;
-        matrix[1][2] = valueFasilitasToHarga;
         matrix[2][2] = 1;
-        matrix[3][2] = Double.parseDouble(getIntent().getStringExtra("value-fasilitas-akses"));
-
-        matrix[0][3] = valueAksesToJarak;
-        matrix[1][3] = valueAksesToHarga;
-        matrix[2][3] = valueAksesToFasilitas;
         matrix[3][3] = 1;
+
+        // Slider 1
+
+        if(Integer.valueOf("" + getIntent().getStringExtra("jarak-harga")) == 0)
+        {
+            matrix[0][1] = Double.parseDouble(getIntent().getStringExtra("value-jarak-harga"));
+            matrix[1][0] = valueHargaToJarak;
+        }
+        else if(Integer.valueOf("" + getIntent().getStringExtra("jarak-harga")) == 1)
+        {
+            matrix[0][1] = valueHargaToJarak;
+            matrix[1][0] = Double.parseDouble(getIntent().getStringExtra("value-jarak-harga"));
+        }
+
+        // Slider 2
+
+        if(Integer.valueOf("" + getIntent().getStringExtra("jarak-fasilitas")) == 0)
+        {
+            matrix[0][2] = Double.parseDouble(getIntent().getStringExtra("value-jarak-fasilitas"));
+            matrix[2][0] = valueFasilitasToJarak;
+        }
+        else if(Integer.valueOf("" + getIntent().getStringExtra("jarak-fasilitas")) == 1)
+        {
+            matrix[0][2] = valueFasilitasToJarak;
+            matrix[2][0] = Double.parseDouble(getIntent().getStringExtra("value-jarak-fasilitas"));
+        }
+
+        // Slider 3
+
+        if(Integer.valueOf("" + getIntent().getStringExtra("jarak-akses")) == 0)
+        {
+            matrix[0][3] = Double.parseDouble(getIntent().getStringExtra("value-jarak-akses"));
+            matrix[3][0] = valueAksesToJarak;
+        }
+        else if(Integer.valueOf("" + getIntent().getStringExtra("jarak-akses")) == 1)
+        {
+            matrix[0][3] = valueAksesToJarak;
+            matrix[3][0] = Double.parseDouble(getIntent().getStringExtra("value-jarak-akses"));
+        }
+
+        // Slider 4
+
+        if(Integer.valueOf("" + getIntent().getStringExtra("harga-fasilitas")) == 0)
+        {
+            matrix[1][2] = Double.parseDouble(getIntent().getStringExtra("value-harga-fasilitas"));
+            matrix[2][1] = valueFasilitasToHarga;
+        }
+        else if(Integer.valueOf("" + getIntent().getStringExtra("harga-fasilitas")) == 1)
+        {
+            matrix[1][2] = valueFasilitasToHarga;
+            matrix[2][1] = Double.parseDouble(getIntent().getStringExtra("value-harga-fasilitas"));
+        }
+
+        // Slider 5
+
+        if(Integer.valueOf("" + getIntent().getStringExtra("harga-akses")) == 0)
+        {
+            matrix[1][3] = Double.parseDouble(getIntent().getStringExtra("value-harga-akses"));
+            matrix[3][1] = valueAksesToHarga;
+        }
+        else if(Integer.valueOf("" + getIntent().getStringExtra("harga-akses")) == 1)
+        {
+            matrix[1][2] = valueAksesToHarga;
+            matrix[2][1] = Double.parseDouble(getIntent().getStringExtra("value-harga-akses"));
+        }
+
+        // Slider 6
+
+        if(Integer.valueOf("" + getIntent().getStringExtra("fasilitas-akses")) == 0)
+        {
+            matrix[2][3] = Double.parseDouble(getIntent().getStringExtra("value-fasilitas-akses"));
+            matrix[3][2] = valueAksesToFasilitas;
+        }
+        else if(Integer.valueOf("" + getIntent().getStringExtra("fasilitas-akses")) == 1)
+        {
+            matrix[2][3] = valueAksesToFasilitas;
+            matrix[3][2] = Double.parseDouble(getIntent().getStringExtra("value-fasilitas-akses"));
+        }
 
         // Step 1
 

@@ -42,133 +42,265 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <RadioGroup
+                android:id="@+id/pilihJarakHarga"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:text="Jarak"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="@id/rangebar1"
-                app:layout_constraintEnd_toStartOf="@id/rangebar1"
-                app:layout_constraintTop_toTopOf="@id/rangebar1" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/rangebar1">
 
-            <TextView
-                android:layout_width="wrap_content"
+                <RadioButton
+                    android:id="@+id/pilihJarakDaripadaHarga"
+                    android:layout_width="70dp"
+                    android:layout_height="60dp"
+                    android:layout_marginEnd="250dp"
+                    android:background="@drawable/radio_flat_selector"
+                    android:button="@android:color/transparent"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="3dp"
+                    android:paddingRight="16dp"
+                    android:paddingBottom="3dp"
+                    android:text="Jarak"
+                    android:textColor="@drawable/radio_flat_text_selector" />
+
+                <RadioButton
+                    android:id="@+id/pilihHargaDaripadaJarak"
+                    android:layout_width="70dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/radio_flat_selector"
+                    android:button="@android:color/transparent"
+                    android:gravity="center"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="3dp"
+                    android:paddingRight="16dp"
+                    android:paddingBottom="3dp"
+                    android:text="Harga"
+                    android:textColor="@drawable/radio_flat_text_selector" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/pilihJarakFasilitas"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:text="Jarak"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="@id/rangebar2"
-                app:layout_constraintEnd_toStartOf="@id/rangebar2"
-                app:layout_constraintTop_toTopOf="@id/rangebar2" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/rangebar2">
 
-            <TextView
-                android:layout_width="wrap_content"
+                <RadioButton
+                    android:id="@+id/pilihJarakDaripadaFasilitas"
+                    android:layout_width="70dp"
+                    android:layout_height="60dp"
+                    android:layout_marginEnd="250dp"
+                    android:background="@drawable/radio_flat_selector"
+                    android:button="@android:color/transparent"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="3dp"
+                    android:paddingRight="16dp"
+                    android:paddingBottom="3dp"
+                    android:text="Jarak"
+                    android:textColor="@drawable/radio_flat_text_selector" />
+
+                <RadioButton
+                    android:id="@+id/pilihFasilitasDaripadaJarak"
+                    android:layout_width="70dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/radio_flat_selector"
+                    android:button="@android:color/transparent"
+                    android:gravity="center"
+                    android:text="Fasilitas"
+                    android:textColor="@drawable/radio_flat_text_selector" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/pilihJarakAkses"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:text="Jarak"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="@id/rangebar3"
-                app:layout_constraintEnd_toStartOf="@id/rangebar3"
-                app:layout_constraintTop_toTopOf="@id/rangebar3" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/rangebar3">
 
-            <TextView
-                android:layout_width="wrap_content"
+                <RadioButton
+                    android:id="@+id/pilihJarakDaripadaAkses"
+                    android:layout_width="70dp"
+                    android:layout_height="60dp"
+                    android:layout_marginEnd="250dp"
+                    android:background="@drawable/radio_flat_selector"
+                    android:button="@android:color/transparent"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="3dp"
+                    android:paddingRight="16dp"
+                    android:paddingBottom="3dp"
+                    android:text="Jarak"
+                    android:textColor="@drawable/radio_flat_text_selector" />
+
+                <RadioButton
+                    android:id="@+id/pilihAksesDaripadaJarak"
+                    android:layout_width="70dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/radio_flat_selector"
+                    android:button="@android:color/transparent"
+                    android:gravity="center"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="3dp"
+                    android:paddingRight="16dp"
+                    android:paddingBottom="3dp"
+                    android:text="Akses"
+                    android:textColor="@drawable/radio_flat_text_selector" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/pilihHargaFasilitas"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:text="Harga"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="@id/rangebar4"
-                app:layout_constraintEnd_toStartOf="@id/rangebar4"
-                app:layout_constraintTop_toTopOf="@id/rangebar4" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/rangebar4">
 
-            <TextView
-                android:layout_width="wrap_content"
+                <RadioButton
+                    android:id="@+id/pilihHargaDaripadaFasilitas"
+                    android:layout_width="70dp"
+                    android:layout_height="60dp"
+                    android:layout_marginEnd="250dp"
+                    android:background="@drawable/radio_flat_selector"
+                    android:button="@android:color/transparent"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="3dp"
+                    android:paddingRight="16dp"
+                    android:paddingBottom="3dp"
+                    android:text="Harga"
+                    android:textColor="@drawable/radio_flat_text_selector" />
+
+                <RadioButton
+                    android:id="@+id/pilihFasilitasDaripadaHarga"
+                    android:layout_width="70dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/radio_flat_selector"
+                    android:button="@android:color/transparent"
+                    android:gravity="center"
+                    android:text="Fasilitas"
+                    android:textColor="@drawable/radio_flat_text_selector" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/pilihHargaAkses"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:text="Harga"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="@id/rangebar5"
-                app:layout_constraintEnd_toStartOf="@id/rangebar5"
-                app:layout_constraintTop_toTopOf="@id/rangebar5" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/rangebar5">
 
-            <TextView
-                android:layout_width="wrap_content"
+                <RadioButton
+                    android:id="@+id/pilihHargaDaripadaAkses"
+                    android:layout_width="70dp"
+                    android:layout_height="60dp"
+                    android:layout_marginEnd="250dp"
+                    android:background="@drawable/radio_flat_selector"
+                    android:button="@android:color/transparent"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="3dp"
+                    android:paddingRight="16dp"
+                    android:paddingBottom="3dp"
+                    android:text="Harga"
+                    android:textColor="@drawable/radio_flat_text_selector" />
+
+                <RadioButton
+                    android:id="@+id/pilihAksesDaripadaHarga"
+                    android:layout_width="70dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/radio_flat_selector"
+                    android:button="@android:color/transparent"
+                    android:gravity="center"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="3dp"
+                    android:paddingRight="16dp"
+                    android:paddingBottom="3dp"
+                    android:text="Akses"
+                    android:textColor="@drawable/radio_flat_text_selector" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/pilihFasilitasAkses"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:text="Fasilitas"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="@id/rangebar6"
-                app:layout_constraintEnd_toStartOf="@id/rangebar6"
-                app:layout_constraintTop_toTopOf="@id/rangebar6" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/rangebar6">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:text="Harga"
-                app:layout_constraintBottom_toBottomOf="@id/rangebar1"
-                app:layout_constraintStart_toEndOf="@id/rangebar1"
-                app:layout_constraintTop_toTopOf="@id/rangebar1" />
+                <RadioButton
+                    android:id="@+id/pilihFasilitasDaripadaAkses"
+                    android:layout_width="70dp"
+                    android:layout_height="60dp"
+                    android:layout_marginEnd="250dp"
+                    android:background="@drawable/radio_flat_selector"
+                    android:button="@android:color/transparent"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:text="Fasilitas"
+                    android:textColor="@drawable/radio_flat_text_selector" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:text="Fasilitas"
-                app:layout_constraintBottom_toBottomOf="@id/rangebar2"
-                app:layout_constraintStart_toEndOf="@id/rangebar2"
-                app:layout_constraintTop_toTopOf="@id/rangebar2" />
+                <RadioButton
+                    android:id="@+id/pilihAksesDaripadaFasilitas"
+                    android:layout_width="70dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/radio_flat_selector"
+                    android:button="@android:color/transparent"
+                    android:gravity="center"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="3dp"
+                    android:paddingRight="16dp"
+                    android:paddingBottom="3dp"
+                    android:text="Akses"
+                    android:textColor="@drawable/radio_flat_text_selector" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:text="Akses"
-                app:layout_constraintBottom_toBottomOf="@id/rangebar3"
-                app:layout_constraintStart_toEndOf="@id/rangebar3"
-                app:layout_constraintTop_toTopOf="@id/rangebar3" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:text="Fasilitas"
-                app:layout_constraintBottom_toBottomOf="@id/rangebar4"
-                app:layout_constraintStart_toEndOf="@id/rangebar4"
-                app:layout_constraintTop_toTopOf="@id/rangebar4" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:text="Akses"
-                app:layout_constraintBottom_toBottomOf="@id/rangebar5"
-                app:layout_constraintStart_toEndOf="@id/rangebar5"
-                app:layout_constraintTop_toTopOf="@id/rangebar5" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:text="Akses"
-                app:layout_constraintBottom_toBottomOf="@id/rangebar6"
-                app:layout_constraintStart_toEndOf="@id/rangebar6"
-                app:layout_constraintTop_toTopOf="@id/rangebar6" />
+            </RadioGroup>
 
             <com.appyvet.materialrangebar.RangeBar xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/rangebar1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="60dp"
+                android:layout_marginStart="90dp"
                 android:layout_marginTop="40dp"
-                android:layout_marginEnd="60dp"
+                android:layout_marginEnd="90dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -198,9 +330,9 @@
                 android:id="@+id/rangebar2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="60dp"
+                android:layout_marginStart="90dp"
                 android:layout_marginTop="40dp"
-                android:layout_marginEnd="60dp"
+                android:layout_marginEnd="90dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/rangebar1"
@@ -228,9 +360,9 @@
                 android:id="@+id/rangebar3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="60dp"
+                android:layout_marginStart="90dp"
                 android:layout_marginTop="40dp"
-                android:layout_marginEnd="60dp"
+                android:layout_marginEnd="90dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/rangebar2"
@@ -260,9 +392,9 @@
                 android:id="@+id/rangebar4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="60dp"
+                android:layout_marginStart="90dp"
                 android:layout_marginTop="40dp"
-                android:layout_marginEnd="60dp"
+                android:layout_marginEnd="90dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/rangebar3"
@@ -292,9 +424,9 @@
                 android:id="@+id/rangebar5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="60dp"
+                android:layout_marginStart="90dp"
                 android:layout_marginTop="40dp"
-                android:layout_marginEnd="60dp"
+                android:layout_marginEnd="90dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/rangebar4"
@@ -324,9 +456,9 @@
                 android:id="@+id/rangebar6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="60dp"
+                android:layout_marginStart="90dp"
                 android:layout_marginTop="40dp"
-                android:layout_marginEnd="60dp"
+                android:layout_marginEnd="90dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/rangebar5"
