@@ -62,11 +62,8 @@
                     android:background="@drawable/radio_flat_selector"
                     android:button="@android:color/transparent"
                     android:checked="true"
+                    android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
-                    android:paddingLeft="16dp"
-                    android:paddingTop="3dp"
-                    android:paddingRight="16dp"
-                    android:paddingBottom="3dp"
                     android:text="Jarak"
                     android:textColor="@drawable/radio_flat_text_selector" />
 
@@ -76,11 +73,8 @@
                     android:layout_height="60dp"
                     android:background="@drawable/radio_flat_selector"
                     android:button="@android:color/transparent"
+                    android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
-                    android:paddingLeft="16dp"
-                    android:paddingTop="3dp"
-                    android:paddingRight="16dp"
-                    android:paddingBottom="3dp"
                     android:text="Harga"
                     android:textColor="@drawable/radio_flat_text_selector" />
 
@@ -106,11 +100,8 @@
                     android:background="@drawable/radio_flat_selector"
                     android:button="@android:color/transparent"
                     android:checked="true"
+                    android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
-                    android:paddingLeft="16dp"
-                    android:paddingTop="3dp"
-                    android:paddingRight="16dp"
-                    android:paddingBottom="3dp"
                     android:text="Jarak"
                     android:textColor="@drawable/radio_flat_text_selector" />
 
@@ -120,6 +111,7 @@
                     android:layout_height="60dp"
                     android:background="@drawable/radio_flat_selector"
                     android:button="@android:color/transparent"
+                    android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
                     android:text="Fasilitas"
                     android:textColor="@drawable/radio_flat_text_selector" />
@@ -146,11 +138,8 @@
                     android:background="@drawable/radio_flat_selector"
                     android:button="@android:color/transparent"
                     android:checked="true"
+                    android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
-                    android:paddingLeft="16dp"
-                    android:paddingTop="3dp"
-                    android:paddingRight="16dp"
-                    android:paddingBottom="3dp"
                     android:text="Jarak"
                     android:textColor="@drawable/radio_flat_text_selector" />
 
@@ -160,11 +149,8 @@
                     android:layout_height="60dp"
                     android:background="@drawable/radio_flat_selector"
                     android:button="@android:color/transparent"
+                    android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
-                    android:paddingLeft="16dp"
-                    android:paddingTop="3dp"
-                    android:paddingRight="16dp"
-                    android:paddingBottom="3dp"
                     android:text="Akses"
                     android:textColor="@drawable/radio_flat_text_selector" />
 
@@ -190,11 +176,8 @@
                     android:background="@drawable/radio_flat_selector"
                     android:button="@android:color/transparent"
                     android:checked="true"
+                    android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
-                    android:paddingLeft="16dp"
-                    android:paddingTop="3dp"
-                    android:paddingRight="16dp"
-                    android:paddingBottom="3dp"
                     android:text="Harga"
                     android:textColor="@drawable/radio_flat_text_selector" />
 
@@ -204,6 +187,7 @@
                     android:layout_height="60dp"
                     android:background="@drawable/radio_flat_selector"
                     android:button="@android:color/transparent"
+                    android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
                     android:text="Fasilitas"
                     android:textColor="@drawable/radio_flat_text_selector" />
@@ -230,11 +214,8 @@
                     android:background="@drawable/radio_flat_selector"
                     android:button="@android:color/transparent"
                     android:checked="true"
+                    android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
-                    android:paddingLeft="16dp"
-                    android:paddingTop="3dp"
-                    android:paddingRight="16dp"
-                    android:paddingBottom="3dp"
                     android:text="Harga"
                     android:textColor="@drawable/radio_flat_text_selector" />
 
@@ -244,11 +225,8 @@
                     android:layout_height="60dp"
                     android:background="@drawable/radio_flat_selector"
                     android:button="@android:color/transparent"
+                    android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
-                    android:paddingLeft="16dp"
-                    android:paddingTop="3dp"
-                    android:paddingRight="16dp"
-                    android:paddingBottom="3dp"
                     android:text="Akses"
                     android:textColor="@drawable/radio_flat_text_selector" />
 
@@ -274,6 +252,7 @@
                     android:background="@drawable/radio_flat_selector"
                     android:button="@android:color/transparent"
                     android:checked="true"
+                    android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
                     android:text="Fasilitas"
                     android:textColor="@drawable/radio_flat_text_selector" />
@@ -284,11 +263,8 @@
                     android:layout_height="60dp"
                     android:background="@drawable/radio_flat_selector"
                     android:button="@android:color/transparent"
+                    android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
-                    android:paddingLeft="16dp"
-                    android:paddingTop="3dp"
-                    android:paddingRight="16dp"
-                    android:paddingBottom="3dp"
                     android:text="Akses"
                     android:textColor="@drawable/radio_flat_text_selector" />
 
@@ -493,7 +469,7 @@
                 android:layout_marginEnd="30dp"
                 android:layout_marginBottom="30dp"
                 android:onClick="onClickResult"
-                android:text="Find My Best Vacation!"
+                android:text="Cari wisata terbaikku !"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
