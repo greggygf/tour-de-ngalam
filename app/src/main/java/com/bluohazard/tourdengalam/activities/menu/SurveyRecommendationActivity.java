@@ -1,16 +1,26 @@
 package com.bluohazard.tourdengalam.activities.menu;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
 import com.appyvet.materialrangebar.RangeBar;
 import com.bluohazard.tourdengalam.R;
 import com.bluohazard.tourdengalam.activities.MainMenuActivity;
 import com.bluohazard.tourdengalam.activities.ResultActivity;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SurveyRecommendationActivity extends AppCompatActivity {
 
@@ -24,10 +34,14 @@ public class SurveyRecommendationActivity extends AppCompatActivity {
     private RadioButton rdHargaDaripadaAkses, rdAksesDaripadaHarga;
     private RadioButton rdFasilitasDaripadaAkses, rdAksesDaripadaFasilitas;
 
+    private DatabaseReference mDatabase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_recommendation);
+
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         // define the radiobutton
 
@@ -176,6 +190,16 @@ public class SurveyRecommendationActivity extends AppCompatActivity {
     }
 
     public void onClickResult(View view) {
+
+        // Notification
+
+        final Notification.Builder builder = new Notification.Builder(SurveyRecommendationActivity.this)
+                .setTicker("TickerTitle")
+                .setContentTitle("Data siswa")
+                .setContentText("Biodata siswa berhasil ditambahkan")
+                .setPriority(Notification.PRIORITY_DEFAULT)
+                .setSmallIcon(R.drawable.ic_launcher_background);
+
         Intent intent = new Intent(this, ResultActivity.class);
         intent.putExtra("value-jarak-harga", "" + valueJarakHarga);
         intent.putExtra("value-jarak-fasilitas", "" + valueJarakFasilitas);
@@ -219,6 +243,27 @@ public class SurveyRecommendationActivity extends AppCompatActivity {
         } else if (rdAksesDaripadaFasilitas.isChecked()) {
             intent.putExtra("fasilitas-akses", "1");
         }
+
+        DatabaseReference newData = mDatabase.child("notification").push();
+        newData.child("status").setValue("Sukses").addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+
+//                NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+//
+////                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+////                    String channelId = context.getString(R.string.default_notification_channel_id);
+////                    NotificationChannel channel = new NotificationChannel(channelId,   title, NotificationManager.IMPORTANCE_DEFAULT);
+////                    channel.setDescription(body);
+////                    nm.createNotificationChannel(channel);
+////                    builder.setChannelId(channelId);
+////                }
+//                nm.notify(0, builder.build());
+
+                Toast.makeText(SurveyRecommendationActivity.this, "Sukses", Toast.LENGTH_LONG).show();
+
+            }
+        });
 
         startActivity(intent);
     }
