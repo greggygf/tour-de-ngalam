@@ -20,6 +20,14 @@
         android:scaleType="centerCrop"
         android:src="@drawable/kampungbiru" />
 
+    <at.markushi.ui.CircleButton
+        style="@style/buttonSetting"
+        android:layout_marginEnd="20dp"
+        app:cb_color="#002c4d"
+        app:cb_pressedRingWidth="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <View
         android:id="@+id/view"
         android:layout_width="0dp"

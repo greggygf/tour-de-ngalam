@@ -2,8 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/history_description"
+        android:icon="@drawable/back"
         android:title="Sejarah" />
     <item
         android:id="@+id/history_pictures"
+        android:icon="@drawable/back"
         android:title="Foto" />
 </menu>
