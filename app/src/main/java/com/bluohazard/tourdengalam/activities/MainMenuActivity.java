@@ -13,6 +13,7 @@ import com.bluohazard.tourdengalam.activities.menu.AboutActivity;
 import com.bluohazard.tourdengalam.activities.menu.HistoryActivity;
 import com.bluohazard.tourdengalam.activities.menu.ListVacationActivity;
 import com.bluohazard.tourdengalam.activities.menu.SurveyRecommendationActivity;
+import com.bluohazard.tourdengalam.settings.Setting;
 import com.jackandphantom.blurimage.BlurImage;
 
 public class MainMenuActivity extends AppCompatActivity {
@@ -45,6 +46,11 @@ public class MainMenuActivity extends AppCompatActivity {
 
     public void onClickRecommendation(View view) {
         Intent intent = new Intent(this, SurveyRecommendationActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClickSettings(View view) {
+        Intent intent = new Intent(this, Setting.class);
         startActivity(intent);
     }
 }

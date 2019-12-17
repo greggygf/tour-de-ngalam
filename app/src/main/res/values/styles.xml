@@ -1,11 +1,37 @@
 <resources>
 
     <!-- Base application theme. -->
+
+    <!--    Light Theme -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimary">#024A83</item>
         <item name="colorPrimaryDark">@color/colorPrimary</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="backgroundColor">#FFFFFF</item>
+        <item name="textColor">#757575</item>
+        <item name="titleColor">#FFFFFF</item>
+        <item name="navigationTopColor">@color/colorPrimary</item>
+        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
+    </style>
+
+    <!--    Dark Theme -->
+    <style name="DarkAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#32393d</item>
+        <item name="colorPrimaryDark">#1a2744</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="backgroundColor">#1a2744</item>
+        <item name="textColor">#FFFFFF</item>
+        <item name="titleColor">#1488E9</item>
+        <item name="navigationTopColor">#1a2744</item>
+        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
+    </style>
+
+    <!--    transition dark/light mode -->
+    <style name="WindowAnimationTransition">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
     </style>
 
     <!--    Tombol Back -->
@@ -28,7 +54,7 @@
     <style name="titleTop" parent="Widget.AppCompat.TextView">
         <item name="android:fontFamily">@font/poppins_bold</item>
         <item name="android:paddingTop">30dp</item>
-        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textColor">?attr/titleColor</item>
         <item name="android:textSize">20sp</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -37,8 +63,8 @@
     <!--    Background Biru Atas -->
     <style name="backgroundTop">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">100dp</item>
-        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:layout_height">90dp</item>
+        <item name="android:background">?attr/navigationTopColor</item>
     </style>
 
     <!--    Recycler View   -->

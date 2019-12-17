@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/backgroundColor"
     tools:context=".activities.menu.ListVacationActivity">
 
     <View
@@ -72,6 +73,7 @@
                 android:fontFamily="@font/poppins_regular"
                 android:text="@string/caption"
                 android:textAlignment="center"
+                android:textColor="?attr/textColor"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -164,6 +166,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_regular"
                 android:text="@string/android_dev"
+                android:textColor="?attr/textColor"
                 android:textSize="13sp"
                 app:layout_constraintLeft_toLeftOf="@id/profile_image_1"
                 app:layout_constraintRight_toRightOf="@id/profile_image_1"
@@ -174,6 +177,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_regular"
                 android:text="@string/researcher"
+                android:textColor="?attr/textColor"
                 android:textSize="13sp"
                 app:layout_constraintLeft_toLeftOf="@id/profile_image_2"
                 app:layout_constraintRight_toRightOf="@id/profile_image_2"
@@ -184,6 +188,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_regular"
                 android:text="@string/researcher"
+                android:textColor="?attr/textColor"
                 android:textSize="13sp"
                 app:layout_constraintLeft_toLeftOf="@id/profile_image_3"
                 app:layout_constraintRight_toRightOf="@id/profile_image_3"
