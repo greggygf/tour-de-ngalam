@@ -1,23 +1,19 @@
 package com.bluohazard.tourdengalam.activities.menu;
 
 import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
 
 import com.appyvet.materialrangebar.RangeBar;
 import com.bluohazard.tourdengalam.R;
 import com.bluohazard.tourdengalam.activities.MainMenuActivity;
 import com.bluohazard.tourdengalam.activities.ResultActivity;
+import com.bluohazard.tourdengalam.settings.SharedPref;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -36,8 +32,18 @@ public class SurveyRecommendationActivity extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
 
+    SharedPref sharedPref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        sharedPref = new SharedPref(this);
+
+        if (sharedPref.loadNightModeState() == true) {
+            setTheme(R.style.DarkAppTheme);
+        } else {
+            setTheme(R.style.AppTheme);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_recommendation);
 

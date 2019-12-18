@@ -15,6 +15,7 @@ import com.bluohazard.tourdengalam.R;
 import com.bluohazard.tourdengalam.activities.detail.DetailPlaygroundActivity;
 import com.bluohazard.tourdengalam.activities.menu.ListVacationActivity;
 import com.bluohazard.tourdengalam.models.Playground;
+import com.bluohazard.tourdengalam.settings.SharedPref;
 import com.bluohazard.tourdengalam.viewholders.PlaygroundViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -32,8 +33,18 @@ public class PlaygroundActivity extends AppCompatActivity {
     private RecyclerView mRecycler;
     private LinearLayoutManager mManager;
 
+    SharedPref sharedPref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        sharedPref = new SharedPref(this);
+
+        if (sharedPref.loadNightModeState() == true) {
+            setTheme(R.style.DarkAppTheme);
+        } else {
+            setTheme(R.style.AppTheme);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playground);
 

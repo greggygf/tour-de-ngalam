@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bluohazard.tourdengalam.R;
 import com.bluohazard.tourdengalam.activities.list_vacation.MountainActivity;
+import com.bluohazard.tourdengalam.settings.SharedPref;
 import com.bumptech.glide.Glide;
 
 public class DetailMountainActivity extends AppCompatActivity {
@@ -18,8 +19,18 @@ public class DetailMountainActivity extends AppCompatActivity {
     TextView tvNameMountain, tvLocation, tvDescription;
     public ImageView image;
 
+    SharedPref sharedPref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        sharedPref = new SharedPref(this);
+
+        if (sharedPref.loadNightModeState() == true) {
+            setTheme(R.style.DarkAppTheme);
+        } else {
+            setTheme(R.style.AppTheme);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_mountain);
 
