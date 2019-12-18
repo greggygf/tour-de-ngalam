@@ -63,6 +63,7 @@
                 android:padding="16dp">
 
                 <ImageView
+                    android:id="@+id/beachLogo"
                     android:layout_width="88dp"
                     android:layout_height="88dp"
                     android:src="@drawable/sunset" />
@@ -97,9 +98,10 @@
                 android:padding="16dp">
 
                 <ImageView
+                    android:id="@+id/mountainLogo"
                     android:layout_width="88dp"
                     android:layout_height="88dp"
-                    android:src="@drawable/lake" />
+                    android:src="@drawable/mountain" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -131,9 +133,10 @@
                 android:padding="16dp">
 
                 <ImageView
+                    android:id="@+id/playgroundLogo"
                     android:layout_width="88dp"
                     android:layout_height="88dp"
-                    android:src="@drawable/coaster" />
+                    android:src="@drawable/playground" />
 
                 <TextView
                     android:layout_width="wrap_content"
