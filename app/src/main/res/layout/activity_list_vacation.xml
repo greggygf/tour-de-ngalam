@@ -4,13 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/backgroundColor"
     tools:context=".activities.menu.ListVacationActivity">
 
     <View
         android:id="@+id/backgroundTop"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@color/colorPrimary"
+        style="@style/backgroundTop"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -51,6 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
+            app:cardBackgroundColor="?attr/cardColor"
             app:cardCornerRadius="12dp"
             app:cardElevation="6dp">
 
@@ -73,7 +73,7 @@
                     android:layout_marginTop="12dp"
                     android:fontFamily="@font/poppins_regular"
                     android:text="@string/beach"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="?attr/textColor"
                     android:textSize="20sp" />
 
             </LinearLayout>
@@ -85,6 +85,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
             android:onClick="onClickMountain"
+            app:cardBackgroundColor="?attr/cardColor"
             app:cardCornerRadius="12dp"
             app:cardElevation="6dp">
 
@@ -106,7 +107,7 @@
                     android:layout_marginTop="12dp"
                     android:fontFamily="@font/poppins_regular"
                     android:text="@string/mountain"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="?attr/textColor"
                     android:textSize="20sp" />
 
             </LinearLayout>
@@ -117,6 +118,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
+            app:cardBackgroundColor="?attr/cardColor"
             app:cardCornerRadius="12dp"
             app:cardElevation="6dp">
 
@@ -139,7 +141,7 @@
                     android:layout_marginTop="12dp"
                     android:fontFamily="@font/poppins_regular"
                     android:text="@string/playground"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="?attr/textColor"
                     android:textSize="20sp" />
 
             </LinearLayout>

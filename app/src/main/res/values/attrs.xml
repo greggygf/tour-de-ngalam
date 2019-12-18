@@ -2,7 +2,10 @@
 <resources>
     <declare-styleable name="ds">
         <attr name="backgroundColor" format="color" />
+        <attr name="buttonColor" format="color" />
+        <attr name="cardColor" format="color" />
         <attr name="textColor" format="color" />
+        <attr name="textBoldColor" format="color" />
         <attr name="titleColor" format="color" />
         <attr name="navigationTopColor" format="color" />
     </declare-styleable>

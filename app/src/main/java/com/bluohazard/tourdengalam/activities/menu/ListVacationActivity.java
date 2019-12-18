@@ -11,11 +11,22 @@ import com.bluohazard.tourdengalam.activities.MainMenuActivity;
 import com.bluohazard.tourdengalam.activities.list_vacation.BeachActivity;
 import com.bluohazard.tourdengalam.activities.list_vacation.MountainActivity;
 import com.bluohazard.tourdengalam.activities.list_vacation.PlaygroundActivity;
+import com.bluohazard.tourdengalam.settings.SharedPref;
 
 public class ListVacationActivity extends AppCompatActivity {
 
+    SharedPref sharedPref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        sharedPref = new SharedPref(this);
+
+        if (sharedPref.loadNightModeState() == true) {
+            setTheme(R.style.DarkAppTheme);
+        } else {
+            setTheme(R.style.AppTheme);
+        }
+        
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_vacation);
     }

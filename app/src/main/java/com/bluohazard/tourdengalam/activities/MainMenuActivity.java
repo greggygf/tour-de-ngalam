@@ -14,6 +14,7 @@ import com.bluohazard.tourdengalam.activities.menu.HistoryActivity;
 import com.bluohazard.tourdengalam.activities.menu.ListVacationActivity;
 import com.bluohazard.tourdengalam.activities.menu.SurveyRecommendationActivity;
 import com.bluohazard.tourdengalam.settings.Setting;
+import com.bluohazard.tourdengalam.settings.SharedPref;
 import com.jackandphantom.blurimage.BlurImage;
 
 public class MainMenuActivity extends AppCompatActivity {

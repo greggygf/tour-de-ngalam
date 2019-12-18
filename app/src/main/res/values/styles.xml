@@ -9,9 +9,12 @@
         <item name="colorPrimaryDark">@color/colorPrimary</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="backgroundColor">#FFFFFF</item>
+        <item name="cardColor">#FFFFFF</item>
         <item name="textColor">#757575</item>
         <item name="titleColor">#FFFFFF</item>
         <item name="navigationTopColor">@color/colorPrimary</item>
+        <item name="textBoldColor">@color/colorPrimary</item>
+        <item name="buttonColor">#E3E8F1</item>
         <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
     </style>
 
@@ -23,8 +26,11 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="backgroundColor">#1a2744</item>
         <item name="textColor">#FFFFFF</item>
+        <item name="cardColor">#273c75</item>
         <item name="titleColor">#1488E9</item>
+        <item name="textBoldColor">#1488E9</item>
         <item name="navigationTopColor">#1a2744</item>
+        <item name="buttonColor">#273c75</item>
         <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
     </style>
 
