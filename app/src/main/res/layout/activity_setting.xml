@@ -35,14 +35,14 @@
         android:id="@+id/switchMode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Night Mode"
-        android:textColor="?attr/textColor"
-        app:layout_constraintTop_toBottomOf="@id/backgroundTop"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
         android:layout_marginTop="30dp"
-        android:textStyle="bold" />
+        android:layout_marginEnd="30dp"
+        android:text="Aktifkan Mode Malam"
+        android:textColor="?attr/textColor"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/backgroundTop" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

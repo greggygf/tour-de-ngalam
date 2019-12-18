@@ -1,7 +1,5 @@
 package com.bluohazard.tourdengalam.activities;
 
-import android.app.Notification;
-import android.app.NotificationManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,7 +18,6 @@ import com.bluohazard.tourdengalam.models.Recommendation;
 import com.bluohazard.tourdengalam.viewholders.RecommendationViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
